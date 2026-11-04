@@ -1,0 +1,1228 @@
+0|use strict
+1|id-ID
+2|Space
+3|Enter
+4|Tab
+5|Escape
+6|INPUT
+7|(pointer: coarse)
+8|[data-a]
+9|(prefers-reduced-motion: reduce)
+10|Benih Gandum
+11|Benih Wortel
+12|Benih Tomat
+13|Benih Stroberi
+14|Gandum
+15|Wortel
+16|Tomat
+17|Bijih Tembaga
+18|Bijih Besi
+19|Bijih Perak
+20|Telur
+21|Minyak Kelapa
+22|Pisau Tembaga
+23|Pedang Besi
+24|Pedang Perak
+25|Busur Latihan
+26|Busur Besi
+27|Tongkat Sihir
+28|Tongkat Perak
+29|Belati
+30|Belati Besi
+31|Bubuk Racun
+32|Beliung Besi
+33|Roti
+34|Sup Wortel
+35|Telur Dadar
+36|Mayones
+37|Pupuk Kompos
+38|Pompa Air Tangan
+39|Ramuan Pegal Linu
+40|Sabun Wangi
+41|pisau_tembaga
+42|beliung_besi
+43|pedang_besi
+44|pedang_perak
+45|busur_besi
+46|belati_besi
+47|tongkat_perak
+48|Pedang
+49|Busur
+50|Sihir
+51|Bertani
+52|Pandai Besi
+53|Memasak
+54|Tebasan jarak dekat yang seimbang.
+55|Sangat cepat, peluang kritikal tinggi, jangkauan pendek.
+56|Tebasan Putar
+57|Tebas Putar
+58|Serangan memutar mengenai semua musuh di sekelilingmu.
+59|Lingkar Penyembuh
+60|Lingkar Suci
+61|Hujan Panah
+62|Lima anak panah menyebar ke depan.
+63|Bola Api
+64|Bola api besar yang meledak luas.
+65|Langkah Bayangan
+66|Langkah Bayang
+67|Panah Api
+68|Hibrida Busur + Sihir: tiga panah yang meledak membakar.
+69|Pedang Suci
+70|Hibrida Cahaya: tebasan putar yang juga menyembuhkan.
+71|Tikaman Bayangan
+72|Tikam Bayang
+73|Hibrida Bayangan: satu tikaman ×3 damage, pasti kritikal.
+74|Koki Warung
+75|Menggoreng tempe sampai subuh.
+76|Anak Petani
+77|Hafal musim tanam dari kakek.
+78|Montir Bengkel
+79|Tangan selalu bau oli.
+80|Atlet Silat
+81|Juara antar-kampung tiga kali.
+82|Mahasiswa Farmasi
+83|Skripsi tentang minyak atsiri.
+84|Aira
+85|Penyihir Embun
+86|Penyerang jarak jauh
+87|Tangan Hijau
+88|15% peluang panen ganda
+89|Garon
+90|Kesatria Perisai
+91|Tank, menarik perhatian musuh
+92|Mata Tambang
+93|15% peluang bijih ganda
+94|Mimi
+95|Kucing Saudagar
+96|Pendukung, memulihkan HP
+97|Lidah Saudagar
+98|Pajak pasar −1%
+99|Slime
+100|Goblin
+101|Raja Goblin
+102|Slime menyerbu Gerbang Selatan
+103|Penjaga butuh senjata murah. Harga pisau melonjak.
+104|Panen raya di Dataran Ferna
+105|Gandum membanjiri pasar. Harga turun.
+106|Longsor di Tambang Karst
+107|Pasokan besi terganggu. Harga besi naik.
+108|Festival Lentera Lumiria
+109|Permintaan makanan berlipat.
+110|Gelombang Monster di gerbang!
+111|Kuil butuh pembela. Harga senjata dan makanan naik.
+112|Lumiria bertahan!
+113|Pajak pasar dipotong setengah untuk sementara.
+114|Rowan
+115|Ketua Guild Petualang
+116|Bram
+117|Sela
+118|Pendeta Kuil
+119|Pak Tarno
+120|Rin
+121|Pemilik Kedai
+122|Si Gagak
+123|Pasar Gelap
+124|Dewi Lumiria
+125|Kuil Lumiria
+126|Guild Petualang
+127|Bengkel Tempa
+128|Kedai Rin
+129|Perkemahan Goblin
+130|Tambang Karst Kecil
+131|Dataran Gerbang Selatan
+132|Ladang Guild
+133|Kota Lumiria
+134|Berdoa di patung Dewi
+135|Baca:
+136|Baca Papan Berita
+137|Zona Kuning. Bijih tembaga dekat pintu masuk, besi lebih dalam, perak di pojok terjauh (butuh Menambang 15).
+138|Petak Pengembara
+139|Izin aktif sampai Hari §. Tanam benih dengan tombol Aksi.
+140|Butuh izin dari Guild Petualang. Minta ke Rowan.
+141|Gerbang Selatan
+142|Di luar gerbang: Zona Kuning. Berkat Kuil menahan monster di luar pagar.
+143|ZONA MERAH. Raja Goblin bersarang di sini. Saat online, PK di zona ini menjatuhkan 30% isi tas.
+144|Ladang bersama. Panen boleh, tanaman tumbuh lagi sendiri.
+145|Lihat Papan Pesanan
+146|Tempa di landasan
+147|Masak di kompor
+148|Altar Dewi
+149|Baris ruangan tidak rata:
+150|ruangan tanpa bangunan
+151|GUILD PETUALANG
+152|BENGKEL TEMPA
+153|KEDAI RIN
+154|KUIL LUMIRIA
+155|PASAR
+156|PAPAN BERITA
+157|LADANG GUILD
+158|PETAK PENGEMBARA
+159|TAMBANG KARST
+160|GERBANG SELATAN
+161|Kayu
+162|Batu
+163|Papan
+164|Kapak
+165|Inti Golem
+166|Bandit
+167|Golem Reruntuhan
+168|Penginapan Karst
+169|Kantor Serikat Dagang
+170|Penginapan Corvel
+171|Rumah Herbalis
+172|Reruntuhan Tirai · Instans
+173|Reruntuhan Tirai
+174|Desa Mirewood
+175|Hutan Mirewood
+176|Kota Karst
+177|Pegunungan Karst
+178|Pelabuhan Corvel
+179|Distrik Pengembara
+180|Jalan Timur
+181|Alam Liar Elnoria
+182|Keluar ke Mirewood
+183|Peti Reruntuhan
+184|Masuk Reruntuhan Tirai (instans · Zona Merah)
+185|Kereta Kuda · perjalanan cepat
+186|TOKO TUKANG
+187|KOTA KARST
+188|PEGUNUNGAN KARST
+189|PELABUHAN CORVEL
+190|SERIKAT DAGANG
+191|DISTRIK PENGEMBARA
+192|KANTOR TANAH
+193|DESA MIREWOOD
+194|RERUNTUHAN TIRAI
+195|JALAN TIMUR
+196|Ikan Laut
+197|Herba Hutan
+198|Teh Herba
+199|Ikan Bakar
+200|Linggis Senyap
+201|Meja kerja: olah kayu
+202|Menginap · 8 koin (pulih penuh, simpan)
+203|Meja kerja: olah kayu jadi papan
+204|Kuali ramuan (masak)
+205|Toko Tukang Bagas
+206|kantor_tanah
+207|Kantor Tanah Guild
+208|Rumah Keluarga Hadi
+209|Rumah Nenek Sumi
+210|Rumah Juragan Darto
+211|Rumah Pak Ujang
+212|Rumah Penambang Tua
+213|Rumah Nelayan Bimo
+214|Rumah Saudagar Lina
+215|Rumah Juru Mudi
+216|Pondok Pemburu
+217|Kantor Serikat Dagang Corvel
+218|Bagas
+219|Toko Tukang
+220|Wira
+221|Petugas Kantor Tanah
+222|Laut
+223|Juru Tulis Serikat Dagang
+224|Doran
+225|Pedagang Karst
+226|Nara
+227|Pedagang Pelabuhan Corvel
+228|Mbok Herba
+229|Herbalis Mirewood
+230|Dipakai: §
+231|Dipakai: Beliung Besi
+232|Menambang lebih cepat
+233|Pembawa Cahaya
+234|Bayang Lumiria
+235|Pemanah Api
+236|Paladin Lumiria
+237|Pembunuh Bayangan
+238|Pandai Besi Gunung
+239|Petani Dapur
+240|Saudagar Muda
+241|Penyihir Muda
+242|Penyembuh Kuil
+243|Pemanah Gerbang
+244|Tangan Licin
+245|Pendekar Gerbang
+246|Penakluk Goblin
+247|Pengembara Baru
+248|Belum memilih jalur
+249|Pemanah
+250|Jalan Cahaya
+251|Jalan Bayangan
+252|Jalan Tengah
+253|Regen HP di kota ×2, harga jual +5%, upah pesanan +10%, Pedang Suci terbuka.
+254|Copet lebih mudah, Tikaman Bayangan terbuka. Serikat curiga: harga jual −5%, Kuil menolak menyembuhkan.
+255|Tidak ada bonus atau hukuman khusus. Semua pintu masih terbuka.
+256|Cahaya +§
+257|Bayangan +§
+258|Kamu menapaki Jalan Cahaya
+259|Kamu menapaki Jalan Bayangan
+260|Kembali ke Jalan Tengah
+261|Hari § · §.§
+262|Landasan sudah panas. Bawa bijihmu, kita tempa sesuatu yang berguna.
+263|Lapar? Kompornya boleh kau pakai. Bahan bawa sendiri, ya.
+264|Petani
+265|Pengembara Bayangan
+266|Penjelajah Santai
+267|Kurir Dagang
+268|Tukang
+269|Raka
+270|Dimas
+271|Putri
+272|Bayu
+273|Sari
+274|Agus
+275|Wulan
+276|Fajar
+277|Nanda
+278|Rizky
+279|Intan
+280|Yoga
+281|Laras
+282|Tegar
+283|Kiki
+284|Bima
+285|Citra
+286|Gilang
+287|Mira
+288|Ucup
+289|Rani
+290|Joko
+291|Tiara
+292|Ilham
+293|Salsa
+294|Nisa
+295|Andre
+296|Vina
+297|Doni
+298|Slayer
+299|Gacor
+300|Jkt
+301|Sby
+302|Bdg
+303|Smg
+304|Senpai
+305|Kece
+306|XD
+307|GG
+308|Lv50
+309|Sakti
+310|Cuan
+311|Mager
+312|Santuy
+313|Pro
+314|AyamGeprekLv99
+315|OmBesi
+316|Ladang guild tumbuh lagi sendiri, tapi petak sendiri hasilnya lebih banyak.
+317|Perak cuma bisa ditambang kalau Menambang-mu sudah 15.
+318|Pisau tembaga itu tempaan pertama semua orang.
+319|Jangan percaya semua kabar di papan berita. Lihat dulu kredibilitas penulisnya.
+320|Busur enak buat serigala: tembak dari jauh sebelum mereka menerjang.
+321|Bola Api butuh Sihir 5. Latih dulu pakai tongkat.
+322|Raja Goblin lambat, tapi hantamannya sakit. Lihat lingkaran merahnya!
+323|Lingkar Penyembuh juga bisa menyembuhkan pengembara lain. Kuil suka itu.
+324|Malam hari ada yang berjualan di gang dekat bengkel. Jangan bilang siapa-siapa.
+325|Patung Dewi di alun-alun bisa dipakai menyimpan perjalanan.
+326|Ikan murah di Corvel, roti mahal di Karst. Jalan kaki hemat, tapi bandit Jalan Timur tidak bercanda.
+327|Kayu ditebang pakai kapak di hutan luar kota. Dua kayu jadi satu papan di meja kerja Bagas.
+328|panen dulu~
+329|gandum lagi
+330|capek tapi seneng
+331|tang! tang!
+332|bijih mana bijih
+333|perak belum respawn
+334|WTS!
+335|cek harga dulu
+336|slime lagi
+337|awas serigala
+338|heal dong
+339|goblin bau
+340|fokus raja!
+341|afk bentar
+342|cari party
+343|hmm kabar ini...
+344|valid gak nih
+345|berdoa dulu
+346|save dulu
+347|ada quest baru?
+348|pesanan apa hari ini
+349|dingin di gunung
+350|besi murah bgt di sini
+351|batu lagi batu lagi
+352|bau laut~
+353|ikan murah!
+354|kapal datang
+355|hutannya gelap
+356|herba wangi
+357|kavling mahal ya
+358|bangun bangun!
+359|ikut lotre lagi
+360|BANDIT!
+361|jaga barang!
+362|serigala hutan ganas
+363|tempa terus
+364|panas bgt
+365|sup-nya enak
+366|tenang di sini
+367|semoga gacha hoki
+368|§ lagi dong
+369|drop-nya zonk wkwk
+370|yah pingsan :(
+371|tolong bangunin dong
+372|lag woy
+373|sakit bgt hantamannya
+374|· Pengembara AI
+375|Halo! Aku §, §. §
+376|Kabar yang pernah kupasang di papan berita: §, terbukti §. Kredibilitasku §%.
+377|Sampai jumpa
+378|Copet diam-diam (Bayangan)
+379|Dia masih waspada
+380|Coba lagi nanti
+381|Copet berhasil
+382|+§ koin dari §
+383|+§ koin
+384|COPET!! hati-hati sama §!
+385|Ketahuan mencopet!
+386|Denda penjaga § koin · reputasi −1
+387|makasih §! nih buat jajan
+388|penyelamat! makasih banyak
+389|wah baik bgt, ini sedikit koin
+390|§ bangun lagi
+391|Hadiah § koin
+392|kabar § bakal § beneran gak sih?
+393|udah § § duluan wkwk
+394|biasanya valid sih
+395|jangan dipercaya, sering palsu
+396|kabar dari § §
+397|§ di pasar § sekarang, gerak nih
+398|gara2 §, harga pada gila
+399|§? waktunya cuan
+400|siapa yg nyetok sebelum ini, kaya mendadak dah
+401|GERBANG! semua ke selatan!!
+402|healer mana healer
+403|slime ungu banyak bgt
+404|tahan gerbangnya!!
+405|gelombang monster § hari lagi, siapin senjata
+406|pas gelombang nanti ketemu di gerbang ya
+407|pandai besi pasti panen order sebelum gelombang
+408|hati2 dompet kalau ada § di dekat kalian
+409|§ katanya sering ke gang gelap malam2
+410|§ baik bgt, kemarin bangunin aku pas pingsan
+411|respect buat §
+412|katanya ada pedagang aneh di gang dekat bengkel tiap malam
+413|malem2 gini enaknya farming kunang2
+414|kuil malem cakep bgt
+415|WTS § §/pcs, di pasar
+416|ladang guild lagi rame, antri panen
+417|tips: jangan jual § pas panen raya
+418|ada yg punya benih stroberi lebih?
+419|WTS § §/pcs
+420|perak di pojok tambang belum respawn ya?
+421|beliung besi worth bgt
+422|goblin kadang bawa besi, lumayan
+423|open order tempa, bawa bahan sendiri
+424|WTS § §, kualitas bagus
+425|skill pandai besi naik lama bgt di atas 40
+426|WTB besi banyak, harga pasar
+427|WTS § §, nego tipis
+428|WTB § di bawah §
+429|pajak pasar berat, naikin berdagang dulu
+430|harga § § terus, kenapa ya
+431|serigala gampang kalau dipanah dari jauh
+432|WTB §
+433|Hujan Panah butuh Busur 8, grind dulu
+434|LFG serigala seberang jembatan
+435|Bola Api + Panah Api combo mantap
+436|mana habis mulu
+437|cari pemanah buat build Panah Api bareng
+438|LFG Raja Goblin, butuh tank
+439|LFG Raja Goblin, butuh 2 lagi
+440|party slime santai, gas?
+441|Garon tank-nya enak bgt sumpah
+442|ada yg pingsan? aku bangunin
+443|healer gratis di perkemahan goblin
+444|kuil butuh donasi, ayo bantu
+445|Cahaya 30 buka Pedang Suci lho
+446|jangan tanya aku dapat perak dari mana
+447|kabar di papan itu... ya, percaya aja
+448|malam ini ada barang bagus di gang
+449|§ di Corvel cuma §, di Lumiria §
+450|kereta pakai asuransi dong, kemarin dicegat bandit
+451|WTB ikan buat dibawa ke Karst
+452|arbitrase tipis2 yang penting jalan
+453|open jasa bangun rumah wkwk
+454|kayu mahal minggu ini
+455|kavling niaga deklarasinya jangan kemurahan, nanti dibeli paksa
+456|lotre rumah kalah mulu, pity udah 5
+457|afk makan dulu
+458|server rame ya hari ini
+459|gacha ritual kapan rate up lagi
+460|ada yg mau mabar ke danau?
+461|wih ada pengembara baru, salken §!
+462|§ kalo bingung tanya aja di chat
+463|Katanya ladang Ferna panen besar, gandum bakal banjir.
+464|Dengar-dengar dinding Tambang Karst mulai retak.
+465|Panitia Festival Lentera diam-diam borong bahan makanan.
+466|Pembeli besar dari Corvel datang besok.
+467|Guild katanya mau borong buat Gelombang Monster.
+468|Ada yang lihat karavan Serikat ditahan di perbatasan.
+469|Tambangnya mau ditutup sementara, sumber terpercaya.
+470|Kuil butuh banyak untuk ritual musim depan.
+471|Gudang Serikat kebanjiran, stok bakal dibuang murah.
+472|Serikat Dagang
+473|Papan Berita
+474|§: harga § akan §
+475|wkwk makasih yg beli § kemahalan
+476|cuan tipis2
+477|namanya juga kabar hehe
+478|kena prank kabar § dari § :(
+479|§ nyebar kabar palsu lagi
+480|udah borong §, ternyata hoax
+481|kabar § soal § beneran!
+482|Kabarmu terbukti
+483|Kredibilitas naik jadi §%
+484|Kabarmu terbukti palsu
+485|Denda guild 20 koin · kredibilitas §%
+486|§ nyebar kabar palsu ya? ckck
+487|PALSU
+488|Kabar § dari §: §
+489|Kabar terbukti
+490|Kabar ternyata palsu
+491|§ · dari §
+492|Peristiwa Dunia
+493|Sistem
+494|Peristiwa: §
+495|psst ada info penting di papan berita
+496|cek papan berita deh
+497|info A1 nih
+498|Petani Desa Ferna
+499|NPC
+500|Penambang Karst
+501|Karavan Corvel
+502|Bengkel Pak Tarno
+503|Penduduk Lumiria
+504|Penjaga Gerbang
+505|Pengembara AI bertani (§ orang)
+506|AI
+507|Pengembara AI menambang (§ orang)
+508|Pengembara AI menempa (§ orang)
+509|Pengembara AI berburu (§ orang)
+510|Pengembara AI berdagang (§ orang)
+511|toast glass
+512|btn sm
+513|Keluar dari Kuil, lalu temui Ketua Guild Rowan di dalam Guild Petualang (barat alun-alun)
+514|Panen 3 tanaman di Ladang Guild (§/3)
+515|Tempa Pisau Tembaga di Bengkel (bijih di tambang barat laut)
+516|Kalahkan 3 Slime di luar gerbang (§/3)
+517|Lapor ke Rowan di Guild
+518|Jual satu barang di Pasar (Bram, timur alun-alun)
+519|Kuil memanggilmu: temui Pendeta Sela di dalam Kuil
+520|Minta izin tanah ke Rowan di Guild
+521|Tanam benih di Petak Pengembara (tenggara)
+522|Pilih jalurmu: beli senjata latihan di Guild, rakit skill di Jendela Status › Build
+523|Ciptakan resep Bumi: §
+524|Baca Papan Berita sebelum berdagang
+525|Taklukkan Raja Goblin (zona merah, barat daya)
+526|Gudang senjata latihan
+527|Pengembara baru, ya? Aku Rowan, ketua Guild Petualang Lumiria.
+528|Di sini tidak ada kelas yang mengikatmu. Pedang, busur, sihir, penyembuhan, atau jalan bayangan: pilih dan latih sendiri.
+529|Ini beliung tua. Kalau mau senjata lain, gudang senjata latihan guild terbuka untukmu.
+530|Quest: Coba Tiga Hidup
+531|Petani · Pandai besi · Petualang
+532|Tiga hidup, tiga rasa. Petani, pandai besi, petualang... semuanya pekerjaan terhormat di sini.
+533|Ini 40 koin. Sekarang coba jual sesuatu di pasar. Bram di timur alun-alun akan memberimu harga yang... jujur, katanya.
+534|Belum selesai? Ladang di timur, tambang di barat laut, slime di selatan. Butuh senjata lain?
+535|Nanti saja
+536|Pasar ada di timur alun-alun. Bram tidak menggigit.
+537|Pendeta Sela mencarimu. Kuil ada di utara.
+538|Kudengar kau sudah punya rekan. Waktunya punya tanah sendiri.
+539|Ini Izin Petak Pengembara: gratis 7 hari. Setelah itu kau menyewa seperti yang lain, dan pajaknya naik kalau kau serakah menimbun petak.
+540|Petaknya di tenggara, dekat ladang guild. Ambil juga benih ini untuk awal.
+541|benih_gandum
+542|benih_wortel
+543|benih_tomat
+544|Izin Petak Pengembara
+545|Berlaku sampai Hari § · +10 benih
+546|Daftarkan resep §
+547|Monster di gerbang! Semua yang bisa memegang senjata, ke selatan!
+548|Kudengar kabar tidak enak tentangmu. Pesanan guild tetap boleh, tapi upahnya kupotong.
+549|Pengembara yang dibicarakan semua orang! Ada perlu apa?
+550|Ada perlu apa, Pengembara?
+551|§? Belum pernah ada yang mendaftarkannya. Mulai hari ini namamu tercatat di Arsip Guild sebagai penemunya.
+552|Setiap kali pengrajin lain membuatnya, kau dapat royalti 1% dari biaya guild. Cek Jendela Status-mu.
+553|Resep Bumi terdaftar
+554|Royalti § aktif
+555|Bram, saudagar. Harga di sini naik turun mengikuti pasokan, penduduk, karavan, dan kejadian di dunia.
+556|Tiap barang yang kau jual menambah stok kota, jadi harganya turun sedikit. Tab Arus Ekonomi menunjukkan siapa yang memproduksi dan siapa yang menghabiskan.
+557|Hmm. Serikat bilang aku harus hati-hati denganmu. Harga jualmu kupotong sedikit.
+558|Dewi merasakan tekadmu. Saatnya Ritual Pemanggilan pertamamu.
+559|Jiwa-jiwa lain terjebak di Tirai. Panggil satu untuk menemanimu. Yang pertama ini gratis.
+560|Bayanganmu pekat, Pengembara. Dewi tidak memberi takdir, tapi Ia juga tidak buta. Aku tidak bisa menyembuhkanmu sampai kau menebusnya.
+561|Sumbangan di altar, membangunkan pengembara yang pingsan, atau pesanan guild akan menerangi jalanmu lagi.
+562|Lukamu kusembuhkan dengan berkat Dewi. Hati-hati di luar gerbang.
+563|Dewi tidak memberi takdir, tapi Ia selalu mendengar.
+564|Cahaya dan bayangan sama-sama jalan. Yang penting kau sadar ke mana melangkah.
+565|Ritual berikutnya butuh Kristal Tirai. Itu cerita untuk lain hari.
+566|Altar Dewi Lumiria
+567|Altar terasa dingin di bawah tanganmu.
+568|Cahaya hangat jatuh dari jendela kaca patri.
+569|Berdoa (pulihkan & simpan)
+570|Sumbang 20 koin (+Cahaya)
+571|Koin tidak cukup
+572|Terima kasih, Pengembara
+573|Kuil menerima sumbanganmu
+574|Pergi
+575|Kamu berdoa sejenak. HP dan mana pulih, perjalananmu tersimpan.
+576|Doamu terasa hampa, tapi perjalananmu tetap tersimpan.
+577|Jual barang (tanpa pajak, +20%)
+578|Bubuk Racun · 35 koin
+579|Bocoran kabar · 30 koin
+580|Ssst. Pelan-pelan. Aku Gagak. Yang dijual di sini tidak tercatat di buku Serikat.
+581|Mau apa malam ini? Ingat, Kuil tidak suka orang yang sering mampir ke sini.
+582|Tidak ada kabar beredar
+583|Gagak mengangkat bahu
+584|BOCORAN: benar
+585|BOCORAN: palsu
+586|Dari orang dalam Serikat: §. Kau tidak dengar dari aku.
+587|Kau sudah bangun, §. Selamat datang di Kuil Lumiria.
+588|Dewi memanggilmu tanpa takdir. Di sini kau bebas jadi petani, pandai besi, saudagar, pemanah, penyihir... bahkan pencuri. Cahaya atau bayangan, itu pilihanmu.
+589|Coba ucapkan "Status" dalam hati.
+590|Itu Jendela Status-mu. Penduduk asli tidak bisa melihatnya. Hanya para Pengembara.
+591|Sekarang keluar lewat pintu selatan dan temui Ketua Guild Rowan. Gedung berpanji biru di barat alun-alun.
+592|Tujuan baru
+593|Temui Rowan di Guild Petualang
+594|Kuil memanggilmu
+595|Pendeta Sela ingin bicara
+596|JENDELA STATUS
+597|Status
+598|Build
+599|Skill
+600|Tas
+601|Resep
+602|Hasil Bumi
+603|Bijih & Bahan
+604|Barang Jadi
+605|Dapur & Benih
+606|Bandingkan Kota
+607|Arus Ekonomi
+608|PAPAN KAVLING
+609|Kavling
+610|Bangun
+611|KANTOR TANAH GUILD
+612|PETI PENYIMPANAN
+613|KELOLA TOKO
+614|TOKO TUKANG BAGAS
+615|MEJA KERJA
+616|PETA ELNORIA
+617|DAPUR KEDAI RIN
+618|PAPAN PESANAN GUILD
+619|Kabar
+620|Tulis Kabar
+621|GUDANG SENJATA LATIHAN
+622|PASAR GELAP
+623|JEDA
+624|[data-tab]
+625|[data-do]
+626|Cahaya §
+627|Bayangan §
+628|Terbuka sejak awal
+629|Jendela Status terbuka untuk pertama kalinya.
+630|Tekan I atau tombol Status kapan saja. Tab Build untuk merakit senjata dan skill sendiri.
+631|Tongkat Kayu
+632|Petak Guild s.d. Hari §
+633|Belum punya
+634|Cahaya
+635|Netral
+636|· pingsan
+637|Sifat: § (§)
+638|HP · Energi
+639|Jurus energi:
+640|Belum ada. Ritual Pemanggilan pertama ada di Kuil.
+641|Jalur:
+642|Kenangan Bumi:
+643|HP / Mana
+644|Peringkat Tempur
+645|Senjata
+646|Koin
+647|Reputasi Guild
+648|Lv § (§)
+649|Kredibilitas kabar
+650|Royalti resep Bumi
+651|Cahaya: pesanan guild, sumbangan Kuil, membangunkan pengembara pingsan, kabar jujur. Bayangan: mencopet, kabar palsu, Pasar Gelap, racun.
+652|Rekan
+653|Dipakai
+654|Pakai
+655|§ · § dmg dasar · melatih §
+656|Kosong
+657|Slot § · §
+658|HIB
+659|HIBRIDA
+660|Butuh
+661|· § mana · jeda § dtk
+662|Slot 1
+663|Slot 2
+664|Senjata · menentukan cara menyerang
+665|Beli senjata latihan di Guild, tempa versi kuatnya di Bengkel. Tiap senjata melatih skill tempurnya sendiri.
+666|Slot skill aktif
+667|Semua skill · rakit build-mu sendiri
+668|Tidak ada kelas. Skill naik karena dipakai, total maksimal 700 poin. Skill hibrida muncul dari gabungan dua jalur, dan dua di antaranya butuh Jalan Cahaya atau Bayangan.
+669|Skill naik saat dipakai. Total maksimal 700 poin, jadi tidak ada yang bisa menguasai semuanya.
+670|Tempur
+671|Total skill
+672|Gelar muncul dari kombinasi skill dan jalan yang kamu tempuh. Ambangnya diturunkan untuk prototype.
+673|Tas kosong.
+674|Makan (+§ HP)
+675|Pilih untuk ditanam
+676|Tabur di Petak Pengembara
+677|Oleskan ke senjata (+3 dmg, 90 dtk)
+678|Isi tas bisa jatuh saat kalah dari pemain lain di zona kuning atau merah (fitur online). Barang di bank selalu aman.
+679|RESEP BUMI
+680|Bengkel
+681|Kedai
+682|Tempa
+683|Masak
+684|Resep Bumi berasal dari Kenangan Bumi-mu. Buat sekali, lalu daftarkan ke Rowan untuk royalti.
+685|Tumbuh dalam § detik (dipercepat untuk prototype).
+686|§, § damage dasar. §
+687|Makanan pemulih HP.
+688|Alat. Tebang pohon liar di luar kota untuk kayu (melatih Pertukangan).
+689|Alat Pasar Gelap. +15% peluang membobol pintu.
+690|Memotong sisa waktu tumbuh semua tanaman di petakmu sebesar 40%.
+691|Barang Pasar Gelap. Senjata beracun +3 damage selama 90 detik. Menggeser ke Bayangan.
+692|Penemuan dari dunia asalmu. Laku mahal di pasar.
+693|Harga pasar sekarang ±§ koin.
+694|benih_stroberi
+695|· harga tetap
+696|kabar § beredar
+697|Jual §
+698|Semua
+699|Beli §
+700|Punya §§§
+701|bonus Cahaya +5%
+702|Serikat curiga −5%
+703|Pajak transaksi §% (turun dengan skill Berdagang)§. Pajak kota § ×§. Harga = harga dasar × (stok target kota ÷ stok kota)
+704|× pengali event. Stok bergerak karena NPC, Pengembara AI, kabar, dan kamu.
+705|Menyeimbangkan harga antar pembeli dan penjual
+706|Hasilkan: §
+707|Pakai: §
+708|cenderung turun
+709|cenderung naik
+710|§§ → harga §
+711|Setiap jam in-game, aktor di bawah memproduksi dan mengonsumsi barang. Selisihnya menggeser stok kota, lalu stok menggeser harga. Kamu dan 100 Pengembara AI ikut memutar roda yang sama.
+712|Selisih bersih per jam
+713|[data-spark]
+714|Senjata latihan untuk mencoba jalur baru. Versi kuatnya ditempa di Bengkel. Kamu bisa ganti senjata kapan saja di Jendela Status › Build.
+715|Sudah punya
+716|Beli
+717|Penyembuhan tidak butuh senjata khusus: pasang Lingkar Penyembuh di slot skill dan gunakan saat bertarung.
+718|Si Gagak membeli 20% di atas harga pasar, tanpa pajak, tanpa catatan Serikat. Setiap transaksi menggeser jalanmu ke Bayangan.
+719|Tidak ada barang yang bisa dijual.
+720|sudah punya
+721|40 koin
+722|Dijual
+723|+15% peluang membobol pintu. Bayangan +3.
+724|KABARMU
+725|BEREDAR · § dtk
+726|NAIK
+727|TURUN
+728|Periksa · 5 koin
+729|§ Harga § akan §
+730|Saat dipasang § → sekarang § (
+731|) · §% pengembara percaya§
+732|Kabarmu masih beredar. Tunggu sampai terbukti atau terbantah.
+733|Aturan: kabar terbukti hanya jika peristiwa dunia yang cocok benar-benar terjadi dalam 90 detik. Kabar palsu → kredibilitas −20, denda guild 20 koin, reputasi −1, Bayangan +8. Kabar terbukti → kredibilitas +8, reputasi +1, Cahaya +2.
+734|Kabar dipercaya sebanding kredibilitasmu. Pengembara lain membeli atau menjual sesuai kabar, jadi harga bergerak sebelum kabar terbukti.
+735|Tulis kabar baru
+736|Akan NAIK
+737|Akan TURUN
+738|Pasang kabar · 25 koin
+739|Gelombang Monster diperkirakan tiba dalam § hari. Pandai besi diminta menyiapkan senjata.
+740|Gelombang Monster sedang menyerang Gerbang Selatan!
+741|Dikonfirmasi: §.
+742|DICARI: §, diduga mencopet dan menyebar kabar palsu. Laporkan ke penjaga.
+743|Tidak ada pengumuman resmi saat ini.
+744|Belum ada kabar beredar.
+745|Belum ada.
+746|RESMI GUILD · SELALU BENAR
+747|Kabar di bawah ditulis pengembara dan Serikat Dagang. Tidak semuanya benar: ada yang sengaja menyebar kabar palsu untuk menggoreng harga. Lihat kredibilitas penulisnya, periksa dengan skill Berdagang, atau... beli bocoran di tempat yang gelap.
+748|Kabar beredar
+749|Arsip
+750|§ § · resep yang lebih sulit melatih skill lebih cepat.
+751|Buat
+752|Kayu didapat dengan menebang pohon liar memakai kapak, atau dibeli di Toko Tukang.
+753|Telur dan minyak kelapa bisa dibeli di pasar. Ikan murah di Corvel, herba di Mirewood.
+754|Bijih tembaga dan besi ada di tambang barat laut. Goblin kadang membawa besi.
+755|Pesanan dari penduduk NPC. Upahnya di atas harga pasar dan menambah Reputasi Guild. Saat server ramai, jumlah pesanan NPC berkurang supaya pasar antar pemain tetap jadi pusat.
+756|Punya §/§
+757|Upah § koin + 1 reputasi
+758|Mati
+759|Nyala
+760|Simpan sekarang
+761|Suara: §
+762|Guncangan layar: §
+763|Kembali ke layar judul
+764|Permainan tersimpan otomatis di browser ini.
+765|HP sudah penuh
+766|Benih dipilih
+767|Senjata beracun
+768|+3 damage selama 90 detik
+769|Belum punya petak
+770|Minta izin ke Rowan dulu
+771|Pupuk ditabur
+772|§ tanaman tumbuh lebih cepat
+773|Slime menyerbu Gerbang Selatan! Harga pisau melonjak 70%.
+774|Peristiwa: Slime menyerbu Gerbang Selatan
+775|Kapak dibeli
+776|Hadap pohon liar di luar kota lalu tekan E
+777|Jalur § terbuka · ubah di Build
+778|Ditempa
+779|Dimasak
+780|Dibuat
+781|Resep Bumi! Daftarkan ke Rowan untuk royalti.
+782|Tiga Hidup: Pandai besi ✓
+783|Pisau pertamamu!
+784|Pesanan selesai
+785|+§ koin · +1 reputasi
+786|Kabar dipasang
+787|§% pengembara percaya
+788|wah § mau §, gas §
+789|kabar dari § nih
+790|§ siapa? belum tentu valid
+791|hmm skip dulu
+792|kemungkinan benar
+793|Analisismu (§% akurat): §
+794|HP § · Jurus: §
+795|Sifat: §
+796|Embun pagi selalu menemukan jalannya. Aku juga. Mohon bantuannya!
+797|Perisaiku milikmu. Siapa pun yang menyerangmu harus melewatiku dulu.
+798|Nyaa~ Aku Mimi! Aku jago tawar-menawar. Dan menyembuhkan, kalau kau traktir ikan.
+799|§ kini rekanmu. Sekarang temui Rowan. Sudah waktunya kau punya tanah sendiri.
+800|Skill naik: § §
+801|Skill terbuka: § (pasang di Build)
+802|Pasang § · Esc selesai
+803|§: § · Esc batal
+804|Bicara:
+805|Bangunkan § (+Cahaya)
+806|Sapa:
+807|Keluar
+808|Tambang § (§/§)
+809|Panen §
+810|Tebang pohon (kayu)
+811|Pohon · butuh kapak dari Toko Tukang
+812|Petak tanam milik orang lain
+813|Petak terkunci · butuh izin Guild
+814|Tanam § (§)
+815|Tidak punya benih · beli di pasar
+816|Tangan Hijau ×2
+817|Tiga Hidup: Petani ✓
+818|Hasil ladang masuk tas
+819|Bijih ini terlalu keras
+820|Butuh Menambang § (sekarang §)
+821|Mata Tambang ×2
+822|Mana habis
+823|§ terkunci
+824|Mana kurang
+825|Tidak ada sasaran
+826|§ dikalahkan party Pengembara AI
+827|Tiga Hidup: Petualang ✓
+828|Gerbang aman untuk sementara
+829|Golem Reruntuhan runtuh!
+830|Segel peti di ruang terakhir terbuka · +4 reputasi
+831|§ merobohkan Golem Reruntuhan!
+832|Raja Goblin tumbang!
+833|+3 reputasi · gelar Penakluk Goblin terbuka
+834|§ menaklukkan Raja Goblin!
+835|Kau kehilangan § koin di luar sana.
+836|Jiwamu ditarik kembali ke Kuil. Tubuhmu sudah kubangun ulang.§
+837|Di dunia online, sebagian isi tasmu juga akan tertinggal di tempat kau jatuh. Berhati-hatilah.
+838|Langit di selatan memerah
+839|Gelombang Monster akan tiba dalam 3 hari
+840|Kau melihatnya? Itu pertanda Gelombang Monster. Tiga hari lagi mereka datang ke gerbang.
+841|Lumiria butuh semua orang: petani untuk makanan, pandai besi untuk senjata, petarung untuk gerbang.
+842|Mulai sekarang, jalanmu milikmu sendiri.
+843|Tutorial selesai
+844|Kamu bebas jadi apa saja
+845|GELOMBANG MONSTER!
+846|Pertahankan Gerbang Selatan
+847|+150 koin · +3 reputasi · pajak pasar dipotong setengah
+848|Gelombang mundur sendiri
+849|opacity .28s
+850|Rowan, Papan Pesanan, gudang senjata
+851|Landasan & tungku: tempa senjata dan alat
+852|Kompor: masak makanan & resep Bumi
+853|Altar Dewi, Pendeta Sela, Ritual Pemanggilan
+854|Bagas jual kayu, batu, papan & kapak · meja kerja
+855|Wira: lotre rumah, lelang & pajak Harberger
+856|Laut: laporan harga semua kota & asuransi jalan
+857|Bangunan milikmu
+858|Rumah § · jangan sentuh barangnya
+859|Mode bangun selesai
+860|Tidak di kavling
+861|Mode bangun hanya di kavling milikmu (Distrik Pengembara)
+862|skill2
+863|Peristiwa berakhir
+864|Izin Petak Pengembara habis
+865|Perpanjang di Guild (fase online)
+866|Kecil
+867|Sedang
+868|Besar
+869|Rumah
+870|Kasur untuk istirahat & menyimpan, peti penyimpanan pribadi.
+871|Toko
+872|Pajang barang, pembeli AI datang tiap jam. Hanya di kavling niaga.
+873|Landasan tempa + meja kerja pribadi.
+874|Dapur
+875|Kompor pribadi untuk memasak.
+876|Gudang
+877|Akses peti penyimpanan bersama.
+878|Pagar
+879|Membatasi jalan. Bisa dilewati? Tidak.
+880|Lampu Taman
+881|Menyala saat malam. Dekorasi menaikkan pengunjung toko.
+882|Bangku
+883|Tempat duduk. Dekorasi.
+884|Pohon
+885|Bibit pohon dewasa.
+886|Petak Bunga
+887|Dekorasi murah.
+888|Jalan Batu
+889|Ubin jalan setapak.
+890|Petak Tanam
+891|Tanah garapan untuk menanam benih.
+892|Guild (dijual)
+893|Lowong
+894|§ koin
+895|Gratis
+896|bukan kavlingmu
+897|di luar kavling
+898|toko hanya di kavling niaga
+899|batas § bangunan untuk kavling §
+900|batas 30 dekorasi
+901|bertabrakan dengan bangunan lain
+902|kamu berdiri di sana
+903|depan pintu terhalang
+904|Mode bangun: §
+905|§ · hadap ke tempat kosong lalu tekan E · Esc selesai
+906|Masuk lewat pintunya. Kelola di papan kavling.
+907|§ membangun § pertamanya di Distrik Pengembara
+908|Keluar dulu dari bangunan
+909|Dikembalikan:
+910|Papan kavling
+911|Kavling § · DILELANG · tawaran §
+912|Kavlingmu § · kelola & bangun
+913|Kavling § · lowong · lotre rumah
+914|Kavling § · dijual Guild §
+915|Kavling § · §§
+916|Sewa § −§
+917|Sewa § tertunggak (§/3)
+918|Tiga hari menunggak = kavling disita dan dilelang
+919|sewa menunggak 3 hari
+920|Kavling § jarang dikunjungi
+921|Tidak aktif 30 hari = dilelang Guild. Kunjungi atau bangun sesuatu.
+922|tidak aktif 30 hari
+923|pemilik tidak aktif 30 hari
+924|Kantor Tanah
+925|§ membeli kavling § dari Guild
+926|Kavling § disita Guild
+927|Alasan: §. 50% bahan bangunan dikembalikan ke tasmu.
+928|LELANG: kavling § (§). Harga awal § koin, ditutup pergantian hari.
+929|Kamu sudah penawar tertinggi
+930|Batas 1 kavling hunian
+931|Lepas kavling hunianmu dulu
+932|Batas 2 kavling niaga
+933|Koin kurang
+934|Butuh § koin (ditahan Guild sampai lelang selesai)
+935|Tawaranmu § koin
+936|Koin ditahan. Dikembalikan kalau kamu disalip.
+937|Tawaranmu di § disalip
+938|§ menawar §. Koinmu dikembalikan.
+939|Lelang § dimenangkan!
+940|Kavling § § milikmu. Terlindung dari beli-paksa 3 hari.
+941|§ menang lelang § (§)
+942|Lelang § tanpa penawar
+943|Kamu memenangkan lotre rumah §!
+944|Kavling hunian § · sewa § koin/hari. Bangun lewat papan kavling.
+945|Lotre rumah: § jatuh ke §
+946|Belum beruntung di lotre rumah
+947|Tiket tambahan besok: § (pity)
+948|Kavling § dibeli paksa!
+949|§ membayar nilai deklarasimu (§ koin). Aturan Harberger: nilai terlalu rendah = siapa pun boleh membeli. 50% bahan kembali.
+950|§ membeli paksa kavling § milik § seharga §
+951|Aturan anti-monopoli Guild
+952|Kavling masih terlindung
+953|Pemilik baru terlindung sampai Hari §
+954|Butuh § koin
+955|Kavling § milikmu
+956|Dibeli dari Guild.
+957|Dibeli paksa dari § (+5% biaya Guild). Bangunannya dibongkar.
+958|yah kavling §-ku dibeli §...
+959|harusnya nilai deklarasiku kunaikkan
+960|ok fair, aturan Harberger
+961|Kavling § dilepas
+962|50% bahan bangunan kembali ke tas
+963|Peti penyimpanan
+964|Geledah peti!
+965|Peti milik §
+966|Tidur (pulih penuh, simpan, lewati malam)
+967|Kasur orang lain
+968|Kelola toko
+969|Belanja di toko ini
+970|penghuni rumah
+971|Peti ini milik §.
+972|Biarkan
+973|Ambil diam-diam (Bayangan)
+974|Peti sudah kosong
+975|Peti digeledah
+976|+§ koin, +§ · cepat kabur!
+977|Penghuninya masih waspada
+978|Tidak ada yang melihat
+979|Ketahuan penghuni!
+980|Denda § koin · reputasi −1
+981|Penjaga
+982|§ ketahuan mengambil barang di §
+983|Bukan kasurmu
+984|Menginap 8 koin
+985|Istirahat penuh
+986|Tidur § jam ·
+987|§HP & mana pulih · tersimpan
+988|Masuk:
+989|Terkunci: §
+990|Pintu terkunci
+991|§ · tekan E di depan pintu untuk pilihan
+992|(buka 07.00–19.00)
+993|(buka 08.00–20.00)
+994|Ada gembok besi.
+995|§ terkunci§. Pemilik: §.§
+996|Bobol kunci (Bayangan · §%)
+997|Penghuni masih waspada
+998|Rumah ini baru dibobol hari ini
+999|Terlalu berisik
+1000|Tunggu sebentar sebelum mencoba lagi
+1001|Kunci terbuka
+1002|Geledah peti, lalu kabur sebelum 22 detik habis
+1003|mencoba membobol §
+1004|Gagal membobol
+1005|Tidak ada yang mendengar... kali ini
+1006|Tertangkap penjaga!
+1007|Denda § koin · reputasi −2
+1008|awas ada maling, §!
+1009|§ maling rumah ckck
+1010|kunci rumah kalian woy
+1011|Kabar Kota
+1012|Sebuah rumah
+1013|§ kebobolan. Pelakunya belum diketahui.
+1014|di dalam §
+1015|§mu kebobolan semalam!
+1016|§ § hilang dari peti. Pasang gembok di peti untuk mengurangi risiko.
+1017|§ milik § di § kebobolan
+1018|malam yang sukses hehe
+1019|NIAGA
+1020|HUNIAN
+1021|Nilai deklarasi (Harberger)
+1022|koin (2% nilai)
+1023|Terakhir aktif
+1024|Hari § (§ hari lalu)
+1025|Terlindung dari beli-paksa
+1026|s.d. Hari §
+1027|Kavling §
+1028|§ · §×§ petak
+1029|Pemilik
+1030|Sewa / pajak harian
+1031|Katalog bangunan & dekorasi
+1032|Pasang
+1033|Kayu, batu, papan & kapak ada di Toko Tukang Bagas (utara Kuil). Kayu juga bisa ditebang pakai kapak, batu ditambang. Skill Pertukangan memotong biaya koin.
+1034|KAMU
+1035|belum ada
+1036|LELANG GUILD
+1037|Alasan
+1038|Tawaran tertinggi
+1039|Ditutup
+1040|pergantian ke Hari §
+1041|Tawar § koin
+1042|Koin ditahan Guild dan dikembalikan bila disalip. Penawar AI menaikkan tawaran tiap jam sampai batas pribadinya.
+1043|Bongkar
+1044|Deklarasi nilai (pajak Harberger)
+1045|Kamu sendiri yang menentukan nilai kavling. Pajak = 2% nilai per hari. Tapi siapa pun boleh membeli paksa seharga nilai itu. Nilai wajar sekarang ±§. Di bawah 75% nilai wajar, pedagang AI mulai mengincar.
+1046|Masih kosong. Buka tab Bangun.
+1047|Bangunan & dekorasi (§)
+1048|Bangun di sini
+1049|Lepas kavling
+1050|Sudah punya kavling hunian
+1051|Terdaftar · § tiket
+1052|Belum terdaftar
+1053|LOTRE RUMAH
+1054|Kavling hunian dibagikan lewat undian tiap pergantian hari, bukan dijual, supaya tidak bisa diborong. Satu orang satu kavling hunian. Kalah undian menambah tiket besok (pity, maks 7 tiket).
+1055|Status pendaftaranmu
+1056|Daftar lotre · 5 koin
+1057|Kavling niaga milik Guild, dijual seharga nilai dasar.
+1058|Aturan Harberger: kamu boleh membeli paksa kavling ini seharga nilai yang dideklarasikan pemiliknya, ditambah 5% biaya Guild. Bangunannya dibongkar.
+1059|Terlindung s.d. Hari §
+1060|Beli · § koin
+1061|Pemilik sudah § hari tidak aktif.
+1062|Kavling hunian tidak bisa dibeli paksa. Kalau pemiliknya tidak aktif 30 hari, Guild akan melelangnya.§
+1063|Niaga
+1064|Hunian
+1065|Lelang · §
+1066|(§ hr tidak aktif)
+1067|sewa §/hari
+1068|Belum punya kavling.
+1069|§ tiket
+1070|tidak ikut
+1071|Daftar kavling Distrik
+1072|Milikmu
+1073|Tagihan harian
+1074|Lotre rumah
+1075|Kas Guild (dari sewa)
+1076|Daftar lotre rumah · 5 koin
+1077|Aturan tanah Lumiria
+1078|3. Pemilik baru terlindung dari beli-paksa 3 hari.
+1079|5. Bangunan orang lain terkunci. Rumah warga buka 07–19, toko pemain 08–20. Membobol = jalan Bayangan, risiko denda.
+1080|6. Hasil sewa masuk Kas Guild untuk perawatan jalan dan hadiah event.
+1081|Kosong.
+1082|Gembok besi terpasang
+1083|(risiko kebobolan turun dari 14% ke 3% per malam).
+1084|Pasang gembok · 2 Besi + 15 koin
+1085|Peti
+1086|Peti dipakai bersama oleh semua rumah & gudangmu. Isi peti tidak jatuh saat kalah, tapi bisa dibobol maling malam hari.§
+1087|Tarik
+1088|Etalase kosong.
+1089|Tidak ada barang dagangan di tas.
+1090|Kas toko
+1091|Terjual total
+1092|Ambil kas
+1093|Etalase
+1094|Taruh dari tas
+1095|Pemilik toko · Pengembara AI
+1096|Selamat datang! Harga mengikuti pasar Lumiria.
+1097|Terdaftar lotre rumah
+1098|Undian tiap pergantian hari (00.00)
+1099|Gembok terpasang
+1100|Maling jauh lebih sulit masuk
+1101|Lumiria
+1102|Kota awal. Harga dipengaruhi kabar & peristiwa dunia.
+1103|Karst
+1104|Kota tambang: bijih & batu murah, makanan mahal.
+1105|Corvel
+1106|Pelabuhan: ikan, telur & minyak murah. Perak dan barang Bumi dicari pedagang laut. Pajak Serikat rendah.
+1107|Desa hutan: kayu & herba melimpah, barang logam langka.
+1108|belum tahu
+1109|Barang
+1110|: § Pajak ×§.
+1111|Harga kota lain hanya kamu ketahui dari kunjungan terakhir (atau laporan Serikat di Corvel).
+1112|Hijau
+1113|= termurah untuk dibeli,
+1114|= termahal untuk dijual, kalau selisihnya di atas 20%. Ingat ongkos kereta, pajak kota, dan bandit di jalan.
+1115|Kurir AI ikut berdagang antarkota, jadi selisih harga pelan-pelan menyempit. Siapa cepat, dia untung.
+1116|Kereta kuda §. Perjalanan memakan 2 jam. Tanpa asuransi, ada peluang 12% dicegat bandit dan kehilangan 25% barang dagangan (muatanmu ±§ koin).
+1117|§ · § koin
+1118|Asuransi muatan ke §: § koin (5% nilai barang).
+1119|Berangkat + asuransi (§)
+1120|Berangkat tanpa asuransi (§)
+1121|Batal
+1122|Tidak jadi
+1123|Bandit mencegat kereta!
+1124|Hilang: §. Asuransi akan mencegah ini.
+1125|Kabar Jalan
+1126|Kereta §–§ dicegat bandit
+1127|Tiba di §
+1128|Muatan diasuransikan
+1129|2 jam perjalanan
+1130|Reruntuhan Tirai · instans
+1131|Hanya untukmu & rekanmu. Monster tidak muncul lagi sampai kamu masuk ulang. Peti di ruang terakhir terbuka sekali sehari.
+1132|Peti tersegel
+1133|Kalahkan Golem Reruntuhan dulu
+1134|Peti kosong
+1135|Isi lagi besok (reset harian instans)
+1136|Peti Reruntuhan terbuka!
+1137|+§ koin, 2 Perak, 3 Papan§ · +2 reputasi
+1138|§ menaklukkan Reruntuhan Tirai
+1139|Pohon ini baru ditebang
+1140|Tunas tumbuh lagi sebentar lagi
+1141|Bijih di sini murah, roti mahal. Bawa makanan dari Lumiria, pulang bawa besi. Gampang, kan?
+1142|Kapal dari seberang mencari perak dan barang-barang aneh dari "Bumi". Ikan? Murah meriah di sini.
+1143|Herba dan kayu kami melimpah. Logam? Itu barang mewah di hutan.
+1144|Serikat Dagang Corvel mencatat harga semua kota setiap pagi. Laporannya 10 koin. Pedagang yang pintar tidak berjalan buta.
+1145|Beli laporan harga · 10 koin
+1146|Buka pasar Corvel
+1147|Tentang asuransi jalan
+1148|Bandit suka menyergap kereta yang membawa banyak barang. Asuransi 5% nilai muatan menjamin barangmu utuh. Jalan kaki? Itu urusanmu sendiri dengan bandit Jalan Timur.
+1149|Kantor Tanah Guild. Kavling hunian lewat lotre, kavling niaga lewat pajak Harberger. Tidak ada yang boleh memborong Distrik.
+1150|Mau bangun rumah? Kayu, batu, papan, kapak, semua ada. Meja kerja di pojok boleh dipakai: dua kayu jadi satu papan.
+1151|alat · 25 koin
+1152|Tebang pohon liar di luar kota untuk kayu. Melatih Pertukangan.
+1153|Beli 25
+1154|Harga bahan mengikuti pasar Lumiria. Pertukangan §: memotong biaya koin bangunan sampai 40%.
+1155|punya § · pasar §
+1156|Paket rumah pertama: 8 kayu, 6 batu, 4 papan + 40 koin. Kavling didapat dari Kantor Tanah di Distrik Pengembara (timur kota).
+1157|Lumiria (barat) · Karst (utara-timur, tambang) · Corvel (timur, pelabuhan) · Distrik Pengembara (kavling) · Mirewood (tenggara, hutan & Reruntuhan Tirai) · Kereta kuda menghubungkan keempat kota.
+1158|LUMIRIA
+1159|KARST
+1160|CORVEL
+1161|DISTRIK
+1162|INSTANS
+1163|Hujan Embun
+1164|Ledakan embun: 4 damage ke semua musuh dekat Aira, pulihkan 3 HP-mu.
+1165|Benteng Perisai
+1166|Selama 6 detik semua musuh dekat mengejar Garon, damage ke Garon −80%.
+1167|Pesta Ikan
+1168|Pulihkan 8 HP-mu dan 4 HP pengembara di sekitar.
+1169|§ pingsan
+1170|Bangun sendiri dalam 25 detik dengan setengah HP, atau istirahat/ke Kuil
+1171|HP setengah
+1172|HP §/§
+1173|MANA §/§
+1174|● § koin
+1175|Tengah §§
+1176|Aman
+1177|Zona Kuning
+1178|ZONA MERAH
+1179|§ pengembara online · § AI
+1180|Memasuki ZONA MERAH
+1181|Saat online: PK aktif, 30% isi tas bisa jatuh
+1182|Saat online: PK aktif, 10% isi tas bisa jatuh
+1183|Gelombang Monster: §h §j lagi
+1184|Tahan gerbang: § monster tersisa
+1185|Aksi
+1186|#b-attack .ic
+1187|Tebas
+1188|Panah
+1189|Tikam
+1190|#b-attack .cd
+1191|b-skill
+1192|b-skill2
+1193|· pingsan §s
+1194|Kabur sebelum ketahuan: § dtk
+1195|Perjalanan tersimpan
+1196|Jakarta, 23.47. Hujan belum juga reda.
+1197|Lalu tirai di antara dua dunia terbuka.
+1198|Kamu jatuh menembus langit Elnoria.
+1199|Dewi Lumiria: “Aku tidak memberimu takdir. Pilih sendiri siapa dirimu di dunia ini.”
+1200|Pendek
+1201|Panjang
+1202|Resep Bumi: §
+1203|[data-o]
+1204|Uji
+1205|Terpanggil ke Dunia Lain, Aku Bebas Jadi Apa Saja
+1206|Mulai Baru
+1207|Prototype Fase 0 · PC: WASD gerak · E aksi/masuk · J serang · K/L skill · I status · B bangun · M peta · Esc jeda
+1208|Lewati ›
+1209|Pratinjau Pengembara
+1210|Siapa dirimu di dunia ini?
+1211|Nama
+1212|Warna rambut
+1213|Gaya rambut
+1214|Pakaian
+1215|Kenangan Bumi (asalmu sebelum terpanggil)
+1216|Bangun di Lumiria
+1217|Tujuan
+1218|Skill 1
+1219|Skill 2
+1220|Serang
+1221|RITUAL PEMANGGILAN
+1222|Peluang ★5 1,5% · ★4 13,5% · ★3 85% · Ritual pertama: pilih satu ★4 · Pity 0/80
+1223|Putar HP ke mode lanskap
+1224|untuk bermain Lumiria
+1225|Dunia Lumiria
+1226|Ketuk untuk mengecilkan chat
+1227|Tutup

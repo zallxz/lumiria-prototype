@@ -1,0 +1,213 @@
+1000|Wait a moment before trying again
+1001|Lock opened
+1002|Search the chest, then escape before 22 seconds run out
+1003|trying to break into §
+1004|Break-in failed
+1005|Nobody heard... this time
+1006|Caught by the guards!
+1007|Fine § coins · reputation −2
+1008|watch out, thief, §!
+1009|§ the house thief tsk tsk
+1010|lock your houses, people
+1011|Town News
+1012|A house
+1013|§ was burgled. The culprit is still unknown.
+1014|inside §
+1015|Your § was burgled last night!
+1016|§ § missing from the chest. Put a padlock on the chest to reduce the risk.
+1017|§ owned by § on § was burgled
+1018|a successful night hehe
+1019|COMMERCIAL
+1020|RESIDENTIAL
+1021|Declared value (Harberger)
+1022|coins (2% of value)
+1023|Last active
+1024|Day § (§ days ago)
+1025|Protected from forced purchase
+1026|until Day §
+1027|Plot §
+1028|§ · §×§ tiles
+1029|Owner
+1030|Daily rent / tax
+1031|Building & decoration catalog
+1032|Place
+1033|Wood, stone, planks & axes are at Bagas' Carpentry Shop (north of the Temple). Wood can also be chopped with an axe, stone mined. Carpentry skill cuts the coin cost.
+1034|YOU
+1035|none yet
+1036|GUILD AUCTION
+1037|Reason
+1038|Highest bid
+1039|Closes
+1040|at the change to Day §
+1041|Bid § coins
+1042|Coins are held by the Guild and refunded if you're outbid. AI bidders raise their bids every hour up to their private limit.
+1043|Demolish
+1044|Value declaration (Harberger tax)
+1045|You set the plot's value yourself. Tax = 2% of value per day. But anyone may force-buy it at that value. Fair value now ±§. Below 75% of fair value, AI merchants start circling.
+1046|Still empty. Open the Build tab.
+1047|Buildings & decorations (§)
+1048|Build here
+1049|Release plot
+1050|Already have a residential plot
+1051|Registered · § tickets
+1052|Not registered
+1053|HOUSING LOTTERY
+1054|Residential plots are handed out by a draw at every day change, not sold, so nobody can buy them all up. One residential plot per person. Losing a draw adds a ticket for tomorrow (pity, max 7 tickets).
+1055|Your registration status
+1056|Enter lottery · 5 coins
+1057|Commercial plot owned by the Guild, sold at base value.
+1058|Harberger rule: you may force-buy this plot at the value its owner declared, plus a 5% Guild fee. Their buildings are demolished.
+1059|Protected until Day §
+1060|Buy · § coins
+1061|Owner has been inactive for § days.
+1062|Residential plots can't be force-bought. If the owner is inactive for 30 days, the Guild will auction it.§
+1063|Commercial
+1064|Residential
+1065|Auction · §
+1066|(§ days inactive)
+1067|rent §/day
+1068|No plot yet.
+1069|§ tickets
+1070|not entered
+1071|District plot list
+1072|Yours
+1073|Daily bill
+1074|Housing lottery
+1075|Guild treasury (from rent)
+1076|Enter housing lottery · 5 coins
+1077|Lumiria land rules
+1078|3. New owners are protected from forced purchase for 3 days.
+1079|5. Other people's buildings are locked. Residents' homes open 07–19, player shops 08–20. Breaking in = Path of Shadow, risk of fines.
+1080|6. Rent goes to the Guild treasury for road upkeep and event prizes.
+1081|Empty.
+1082|Iron padlock installed
+1083|(burglary risk drops from 14% to 3% per night).
+1084|Install padlock · 2 Iron + 15 coins
+1085|Chest
+1086|The chest is shared by all your houses & storehouses. Its contents don't drop when you lose, but thieves can burgle it at night.§
+1087|Withdraw
+1088|Display is empty.
+1089|No trade goods in your bag.
+1090|Shop till
+1091|Total sold
+1092|Collect till
+1093|Display
+1094|Stock from bag
+1095|Shop owner · AI Wanderer
+1096|Welcome! Prices follow the Lumiria market.
+1097|Entered the housing lottery
+1098|Draw at every day change (00:00)
+1099|Padlock installed
+1100|Thieves will find it much harder to get in
+1102|Starting town. Prices swing with rumors & world events.
+1104|Mining town: ore & stone are cheap, food is expensive.
+1106|Harbor: fish, eggs & oil are cheap. Sea traders seek silver and Earth goods. Low Trade Guild tax.
+1107|Forest village: wood & herbs abound, metal goods are rare.
+1108|unknown
+1109|Item
+1110|: § Tax ×§.
+1111|You only know other cities' prices from your last visit (or the Trade Guild report in Corvel).
+1112|Green
+1113|= cheapest to buy,
+1114|= priciest to sell, when the gap is over 20%. Remember cart fares, city taxes, and bandits on the road.
+1115|AI couriers trade between cities too, so price gaps slowly narrow. First come, first served.
+1116|§ horse cart. The trip takes 2 hours. Without insurance there's a 12% chance bandits stop you and take 25% of your trade goods (your cargo ±§ coins).
+1117|§ · § coins
+1118|Cargo insurance to §: § coins (5% of goods value).
+1119|Depart + insurance (§)
+1120|Depart without insurance (§)
+1121|Cancel
+1122|Never mind
+1123|Bandits ambush the cart!
+1124|Lost: §. Insurance would have prevented this.
+1125|Road News
+1126|The §–§ cart was ambushed by bandits
+1127|Arrived in §
+1128|Cargo insured
+1129|2-hour trip
+1130|Veil Ruins · instance
+1131|Just for you & your companion. Monsters won't respawn until you re-enter. The chest in the last room opens once a day.
+1132|Chest sealed
+1133|Defeat the Ruin Golem first
+1134|Chest empty
+1135|Refills tomorrow (daily instance reset)
+1136|Ruin Chest opened!
+1137|+§ coins, 2 Silver, 3 Planks§ · +2 reputation
+1138|§ conquered the Veil Ruins
+1139|This tree was just chopped
+1140|A sprout will grow back soon
+1141|Ore is cheap here, bread is pricey. Bring food from Lumiria, go home with iron. Easy, right?
+1142|Ships from overseas want silver and strange goods from "Earth". Fish? Dirt cheap here.
+1143|Our herbs and wood are plentiful. Metal? That's a luxury in the forest.
+1144|The Corvel Trade Guild records every city's prices each morning. The report is 10 coins. Smart traders don't walk blind.
+1145|Buy price report · 10 coins
+1146|Open the Corvel market
+1147|About road insurance
+1148|Bandits love ambushing carts loaded with goods. Insurance at 5% of cargo value keeps your goods safe. On foot? That's between you and the East Road bandits.
+1149|Guild Land Office. Residential plots by lottery, commercial plots by Harberger tax. Nobody gets to buy up the District.
+1150|Want to build a house? Wood, stone, planks, axes, all here. Feel free to use the workbench in the corner: two wood make one plank.
+1151|tool · 25 coins
+1152|Chop wild trees outside town for wood. Trains Carpentry.
+1153|Buy 25
+1154|Material prices follow the Lumiria market. Carpentry §: cuts building coin costs by up to 40%.
+1155|own § · market §
+1156|First-house bundle: 8 wood, 6 stone, 4 planks + 40 coins. Plots come from the Land Office in the Wanderers' District (east of town).
+1157|Lumiria (west) · Karst (northeast, mining) · Corvel (east, harbor) · Wanderers' District (plots) · Mirewood (southeast, forest & Veil Ruins) · Horse carts link all four towns.
+1161|DISTRICT
+1162|INSTANCE
+1163|Dew Rain
+1164|Dew burst: 4 damage to every enemy near Aira, restores 3 of your HP.
+1165|Shield Bastion
+1166|For 6 seconds every nearby enemy chases Garon; damage to Garon −80%.
+1167|Fish Feast
+1168|Restores 8 of your HP and 4 HP to nearby wanderers.
+1169|§ is knocked out
+1170|Gets up alone in 25 seconds with half HP, or rest / visit the Temple
+1171|Half HP
+1174|● § coins
+1175|Middle §§
+1176|Safe
+1177|Yellow Zone
+1178|RED ZONE
+1179|§ wanderers online · § AI
+1180|Entering the RED ZONE
+1181|Online: PK active, 30% of your bag can drop
+1182|Online: PK active, 10% of your bag can drop
+1183|Monster Wave: §d §h left
+1184|Hold the gate: § monsters left
+1185|Action
+1187|Slash
+1188|Shoot
+1189|Stab
+1193|· knocked out §s
+1194|Escape before you're caught: § s
+1195|Journey saved
+1196|Jakarta, 11:47 PM. The rain still hasn't stopped.
+1197|Then the veil between two worlds opened.
+1198|You fell through the sky of Elnoria.
+1199|Goddess Lumiria: “I give you no fate. Choose for yourself who you are in this world.”
+1200|Short
+1201|Long
+1202|Earth recipe: §
+1204|Test
+1205|Summoned to Another World, I'm Free to Be Anything
+1206|New Game
+1207|Prototype Phase 0 · PC: WASD move · E act/enter · J attack · K/L skills · I status · B build · M map · Esc pause
+1208|Skip ›
+1209|Wanderer preview
+1210|Who are you in this world?
+1211|Name
+1212|Hair color
+1213|Hair style
+1214|Outfit
+1215|Earth Memory (your origin before the summoning)
+1216|Wake up in Lumiria
+1217|Objectives
+1220|Attack
+1221|SUMMONING RITUAL
+1222|Rates ★5 1.5% · ★4 13.5% · ★3 85% · First ritual: pick one ★4 · Pity 0/80
+1223|Rotate your phone to landscape
+1224|to play Lumiria
+1225|World of Lumiria
+1226|Tap to shrink chat
+1227|Close

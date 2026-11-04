@@ -1,0 +1,297 @@
+700|Owned §§§
+701|Light bonus +5%
+702|Trade Guild wary −5%
+703|Transaction tax §% (drops with Trading skill)§. City tax § ×§. Price = base price × (city target stock ÷ city stock)
+704|× event multiplier. Stock moves because of NPCs, AI Wanderers, rumors, and you.
+705|Balances prices between buyers and sellers
+706|Produces: §
+707|Uses: §
+708|tends to fall
+709|tends to rise
+710|§§ → price §
+711|Every in-game hour, the actors below produce and consume goods. The difference shifts the town's stock, and stock shifts prices. You and 100 AI Wanderers turn the same wheel.
+712|Net change per hour
+714|Training weapons to try a new path. Stronger versions are forged at the Forge. Switch weapons anytime in Status › Build.
+715|Already owned
+716|Buy
+717|Healing needs no special weapon: put Healing Circle in a skill slot and use it in combat.
+718|The Crow buys at 20% above market, no tax, no Trade Guild records. Every deal shifts your path toward Shadow.
+719|Nothing you can sell.
+720|already owned
+721|40 coins
+722|For sale
+723|+15% chance to break open doors. Shadow +3.
+724|YOUR RUMOR
+725|CIRCULATING · § s
+726|RISE
+727|FALL
+728|Check · 5 coins
+729|§ § price will §
+730|When posted § → now § (
+731|) · §% of wanderers believe it§
+732|Your rumor is still circulating. Wait until it's proven or debunked.
+733|Rule: a rumor is proven only if a matching world event actually happens within 90 seconds. False rumor → credibility −20, guild fine 20 coins, reputation −1, Shadow +8. True rumor → credibility +8, reputation +1, Light +2.
+734|Rumors are believed in proportion to your credibility. Other wanderers buy or sell based on rumors, so prices move before the rumor is proven.
+735|Write a new rumor
+736|Will RISE
+737|Will FALL
+738|Post rumor · 25 coins
+739|The Monster Wave is expected in § days. Blacksmiths are asked to prepare weapons.
+740|The Monster Wave is attacking the South Gate!
+741|Confirmed: §.
+742|WANTED: §, suspected of pickpocketing and spreading fake rumors. Report to the guards.
+743|No official announcements right now.
+744|No rumors circulating yet.
+745|None yet.
+746|OFFICIAL GUILD · ALWAYS TRUE
+747|The rumors below are written by wanderers and the Trade Guild. Not all are true: some spread fake rumors on purpose to pump prices. Check the author's credibility, analyze with your Trading skill, or... buy a tip-off somewhere dark.
+748|Circulating rumors
+749|Archive
+750|§ § · harder recipes train the skill faster.
+751|Make
+752|Get wood by chopping wild trees with an axe, or buy it at the Carpentry Shop.
+753|Eggs and coconut oil can be bought at the market. Fish is cheap in Corvel, herbs in Mirewood.
+754|Copper and iron ore are in the northwest mine. Goblins sometimes carry iron.
+755|Orders from NPC residents. Pay is above market price and raises Guild Reputation. When the server is busy, NPC orders shrink so the player market stays central.
+756|Owned §/§
+757|Reward § coins + 1 reputation
+758|Off
+759|On
+760|Save now
+761|Sound: §
+762|Screen shake: §
+763|Back to title screen
+764|The game saves automatically in this browser.
+765|HP is already full
+766|Seed selected
+767|Poisoned weapon
+768|+3 damage for 90 seconds
+769|No plot yet
+770|Ask Rowan for a permit first
+771|Compost spread
+772|§ crops grow faster
+773|Slimes storm the South Gate! Knife prices soar 70%.
+774|Event: Slimes storm the South Gate
+775|Axe purchased
+776|Face a wild tree outside town and press E
+777|§ path unlocked · change it in Build
+778|Forged
+779|Cooked
+780|Made
+781|Earth recipe! Register it with Rowan for royalties.
+782|Three Lives: Blacksmith ✓
+783|Your first knife!
+784|Order complete
+785|+§ coins · +1 reputation
+786|Rumor posted
+787|§% of wanderers believe it
+788|whoa § is going to §, let's §
+789|rumor from § here
+790|who's §? not necessarily legit
+791|hmm skipping for now
+792|probably true
+793|Your analysis (§% accurate): §
+794|HP § · Skill: §
+795|Trait: §
+796|Morning dew always finds its way. So will I. Please take care of me!
+797|My shield is yours. Anyone who attacks you must get through me first.
+798|Nyaa~ I'm Mimi! I'm great at haggling. And healing, if you treat me to fish.
+799|§ is now your companion. Now go see Rowan. It's time you had land of your own.
+800|Skill up: § §
+801|Skill unlocked: § (equip it in Build)
+802|Place § · Esc to finish
+803|§: § · Esc to cancel
+804|Talk:
+805|Revive § (+Light)
+806|Greet:
+807|Exit
+808|Mine § (§/§)
+809|Harvest §
+810|Chop tree (wood)
+811|Tree · needs an axe from the Carpentry Shop
+812|Someone else's planting plot
+813|Plot locked · needs a Guild permit
+814|Plant § (§)
+815|No seeds · buy some at the market
+816|Green Thumb ×2
+817|Three Lives: Farmer ✓
+818|The harvest goes into your bag
+819|This ore is too hard
+820|Needs Mining § (now §)
+821|Miner's Eye ×2
+822|Out of mana
+823|§ locked
+824|Not enough mana
+825|No target
+826|§ defeated by a party of AI Wanderers
+827|Three Lives: Adventurer ✓
+828|The gate is safe for now
+829|The Ruin Golem crumbles!
+830|The chest seal in the last room is broken · +4 reputation
+831|§ toppled the Ruin Golem!
+832|The Goblin King falls!
+833|+3 reputation · Goblin Conqueror title unlocked
+834|§ defeated the Goblin King!
+835|You lost § coins out there.
+836|Your soul was pulled back to the Temple. I've rebuilt your body.§
+837|In the online world, part of your bag will also be left where you fell. Be careful.
+838|The southern sky turns red
+839|A Monster Wave arrives in 3 days
+840|Did you see that? That's the omen of a Monster Wave. In three days they'll reach the gate.
+841|Lumiria needs everyone: farmers for food, blacksmiths for weapons, fighters for the gate.
+842|From now on, your path is your own.
+843|Tutorial complete
+844|You're free to be anything
+845|MONSTER WAVE!
+846|Defend the South Gate
+847|+150 coins · +3 reputation · market tax cut in half
+848|The wave retreats on its own
+850|Rowan, Order Board, armory
+851|Anvil & furnace: forge weapons and tools
+852|Stove: cook food & Earth recipes
+853|Goddess Altar, Priestess Sela, Summoning Ritual
+854|Bagas sells wood, stone, planks & axes · workbench
+855|Wira: housing lottery, auctions & Harberger tax
+856|Laut: price reports for every city & road insurance
+857|Your building
+858|§'s home · don't touch their things
+859|Build mode finished
+860|Not on a plot
+861|Build mode works only on your own plot (Wanderers' District)
+863|Event ended
+864|Wanderer's Plot permit expired
+865|Renew at the Guild (online phase)
+866|Small
+867|Medium
+868|Large
+869|House
+870|Bed for resting & saving, private storage chest.
+871|Shop
+872|Display goods; AI buyers visit every hour. Commercial plots only.
+873|Forging anvil + private workbench.
+874|Kitchen
+875|Private stove for cooking.
+876|Storehouse
+877|Access to the shared storage chest.
+878|Fence
+879|Blocks the way. Can you walk through? No.
+880|Garden Lamp
+881|Lights up at night. Decorations attract shop visitors.
+882|Bench
+883|A place to sit. Decoration.
+884|Tree
+885|A grown sapling.
+886|Flower Bed
+887|Cheap decoration.
+888|Stone Path
+889|Footpath tile.
+890|Planting Plot
+891|Tilled soil for planting seeds.
+892|Guild (for sale)
+893|Vacant
+894|§ coins
+895|Free
+896|not your plot
+897|outside the plot
+898|shops only on commercial plots
+899|limit of § buildings for a § plot
+900|limit of 30 decorations
+901|collides with another building
+902|you're standing there
+903|the doorway is blocked
+904|Build mode: §
+905|§ · face an empty spot and press E · Esc to finish
+906|Enter through its door. Manage it at the plot board.
+907|§ built their first § in the Wanderers' District
+908|Leave the building first
+909|Returned:
+910|Plot board
+911|Plot § · AUCTION · bid §
+912|Your plot § · manage & build
+913|Plot § · vacant · housing lottery
+914|Plot § · sold by the Guild §
+915|Plot § · §§
+916|Rent § −§
+917|Rent on § overdue (§/3)
+918|Three days overdue = the plot is seized and auctioned
+919|rent overdue 3 days
+920|Plot § is rarely visited
+921|Inactive for 30 days = auctioned by the Guild. Visit or build something.
+922|inactive for 30 days
+923|owner inactive for 30 days
+924|Land Office
+925|§ bought plot § from the Guild
+926|Plot § seized by the Guild
+927|Reason: §. 50% of building materials returned to your bag.
+928|AUCTION: plot § (§). Starting price § coins, closes at the day change.
+929|You're already the highest bidder
+930|Limit of 1 residential plot
+931|Release your residential plot first
+932|Limit of 2 commercial plots
+933|Not enough coins
+934|Needs § coins (held by the Guild until the auction ends)
+935|Your bid: § coins
+936|Coins held. Refunded if you're outbid.
+937|You were outbid on §
+938|§ bid §. Your coins were refunded.
+939|Auction for § won!
+940|The § § plot is yours. Protected from forced purchase for 3 days.
+941|§ won the auction for § (§)
+942|Auction for § had no bidders
+943|You won the housing lottery for §!
+944|§ residential plot · rent § coins/day. Build via the plot board.
+945|Housing lottery: § goes to §
+946|No luck in the housing lottery yet
+947|Extra tickets tomorrow: § (pity)
+948|Plot § was force-purchased!
+949|§ paid your declared value (§ coins). Harberger rule: declare too low and anyone may buy. 50% of materials returned.
+950|§ force-purchased plot § from § for §
+951|Guild anti-monopoly rule
+952|Plot is still protected
+953|New owner protected until Day §
+954|Needs § coins
+955|Plot § is yours
+956|Bought from the Guild.
+957|Force-purchased from § (+5% Guild fee). Their buildings were demolished.
+958|aw my plot § got bought by §...
+959|should've raised my declared value
+960|ok fair, Harberger rules
+961|Plot § released
+962|50% of building materials returned to your bag
+963|Storage chest
+964|Search the chest!
+965|§'s chest
+966|Sleep (full recovery, save, skip the night)
+967|Someone else's bed
+968|Manage shop
+969|Shop here
+970|the resident
+971|This chest belongs to §.
+972|Leave it
+973|Take quietly (Shadow)
+974|The chest is already empty
+975|Chest searched
+976|+§ coins, +§ · get out fast!
+977|The resident is still on guard
+978|Nobody saw
+979|Caught by the resident!
+980|Fine § coins · reputation −1
+981|Guard
+982|§ was caught taking things in §
+983|Not your bed
+984|Staying the night costs 8 coins
+985|Fully rested
+986|Slept § hours ·
+987|§HP & mana restored · saved
+988|Enter:
+989|Locked: §
+990|Door locked
+991|§ · press E at the door for options
+992|(open 07:00–19:00)
+993|(open 08:00–20:00)
+994|There's an iron padlock.
+995|§ is locked§. Owner: §.§
+996|Pick the lock (Shadow · §%)
+997|The resident is still on guard
+998|This house was broken into today
+999|Too noisy

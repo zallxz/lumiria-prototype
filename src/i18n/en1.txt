@@ -1,0 +1,249 @@
+10|Wheat Seeds
+11|Carrot Seeds
+12|Tomato Seeds
+13|Strawberry Seeds
+14|Wheat
+15|Carrot
+16|Tomato
+17|Copper Ore
+18|Iron Ore
+19|Silver Ore
+20|Egg
+21|Coconut Oil
+22|Copper Knife
+23|Iron Sword
+24|Silver Sword
+25|Training Bow
+26|Iron Bow
+27|Magic Staff
+28|Silver Staff
+29|Dagger
+30|Iron Dagger
+31|Poison Powder
+32|Iron Pickaxe
+33|Bread
+34|Carrot Soup
+35|Omelette
+36|Mayonnaise
+37|Compost
+38|Hand Water Pump
+39|Muscle-Ache Tonic
+40|Scented Soap
+48|Sword
+49|Bow
+50|Magic
+51|Farming
+52|Blacksmithing
+53|Cooking
+54|Balanced close-range slash.
+55|Very fast, high crit chance, short reach.
+56|Whirlwind Slash
+57|Whirl Slash
+58|A spinning strike that hits every enemy around you.
+59|Healing Circle
+60|Holy Circle
+61|Arrow Rain
+62|Five arrows fan out ahead.
+63|Fireball
+64|A big fireball with a wide blast.
+65|Shadow Step
+66|Shadow Step
+67|Fire Arrow
+68|Bow + Magic hybrid: three arrows that burst into flame.
+69|Holy Sword
+70|Light hybrid: a whirlwind slash that also heals.
+71|Shadow Stab
+72|Shadow Stab
+73|Shadow hybrid: one stab for ×3 damage, always critical.
+74|Street-Stall Cook
+75|Fried tempeh until dawn.
+76|Farmer's Kid
+77|Knows the planting seasons by heart, thanks to Grandpa.
+78|Garage Mechanic
+79|Hands always smell of oil.
+80|Silat Athlete
+81|Inter-village champion three times.
+82|Pharmacy Student
+83|Thesis on essential oils.
+85|Dew Mage
+86|Ranged attacker
+87|Green Thumb
+88|15% chance of a double harvest
+90|Shield Knight
+91|Tank, draws enemy attention
+92|Miner's Eye
+93|15% chance of double ore
+95|Merchant Cat
+96|Support, restores HP
+97|Merchant's Tongue
+98|Market tax −1%
+101|Goblin King
+102|Slimes storm the South Gate
+103|The guards need cheap weapons. Knife prices soar.
+104|Bumper harvest on the Ferna Plains
+105|Wheat floods the market. Prices fall.
+106|Landslide at Karst Mine
+107|Iron supply disrupted. Iron prices rise.
+108|Lumiria Lantern Festival
+109|Food demand multiplies.
+110|Monster Wave at the gate!
+111|The Temple needs defenders. Weapon and food prices rise.
+112|Lumiria holds!
+113|Market tax temporarily cut in half.
+115|Adventurers' Guild Master
+117|Sela
+118|Temple Priestess
+119|Old Tarno
+121|Tavern Owner
+122|The Crow
+123|Black Market
+124|Goddess Lumiria
+125|Lumiria Temple
+126|Adventurers' Guild
+127|Forge
+128|Rin's Tavern
+129|Goblin Camp
+130|Small Karst Mine
+131|South Gate Plains
+132|Guild Field
+133|Lumiria Town
+134|Pray at the Goddess statue
+135|Read:
+136|Read the News Board
+137|Yellow Zone. Copper ore near the entrance, iron deeper in, silver in the far corner (needs Mining 15).
+138|Wanderer's Plot
+139|Permit active until Day §. Plant seeds with the Action button.
+140|Needs a permit from the Adventurers' Guild. Ask Rowan.
+141|South Gate
+142|Outside the gate: Yellow Zone. The Temple's blessing keeps monsters beyond the fence.
+143|RED ZONE. The Goblin King nests here. Online, PK in this zone drops 30% of your bag.
+144|Shared field. Harvest freely; crops grow back on their own.
+145|View the Order Board
+146|Forge at the anvil
+147|Cook at the stove
+148|Goddess Altar
+151|ADVENTURERS' GUILD
+152|FORGE
+153|RIN'S TAVERN
+154|LUMIRIA TEMPLE
+155|MARKET
+156|NEWS BOARD
+157|GUILD FIELD
+158|WANDERER PLOTS
+159|KARST MINE
+160|SOUTH GATE
+161|Wood
+162|Stone
+163|Plank
+164|Axe
+165|Golem Core
+167|Ruin Golem
+168|Karst Inn
+169|Trade Guild Office
+170|Corvel Inn
+171|Herbalist's House
+172|Veil Ruins · Instance
+173|Veil Ruins
+174|Mirewood Village
+175|Mirewood Forest
+176|Karst Town
+177|Karst Mountains
+178|Corvel Harbor
+179|Wanderers' District
+180|East Road
+181|Elnoria Wilds
+182|Exit to Mirewood
+183|Ruin Chest
+184|Enter the Veil Ruins (instance · Red Zone)
+185|Horse Cart · fast travel
+186|CARPENTER'S SHOP
+187|KARST TOWN
+188|KARST MOUNTAINS
+189|CORVEL HARBOR
+190|TRADE GUILD
+191|WANDERERS' DISTRICT
+192|LAND OFFICE
+193|MIREWOOD VILLAGE
+194|VEIL RUINS
+195|EAST ROAD
+196|Sea Fish
+197|Forest Herb
+198|Herbal Tea
+199|Grilled Fish
+200|Silent Crowbar
+201|Workbench: woodworking
+202|Stay the night · 8 coins (full recovery, save)
+203|Workbench: turn wood into planks
+204|Potion cauldron (cook)
+205|Bagas' Carpentry Shop
+207|Guild Land Office
+208|Hadi Family Home
+209|Granny Sumi's House
+210|Boss Darto's House
+211|Mr. Ujang's House
+212|Old Miner's House
+213|Bimo the Fisher's House
+214|Merchant Lina's House
+215|The Helmsman's House
+216|Hunter's Hut
+217|Corvel Trade Guild Office
+219|Carpentry Shop
+221|Land Office Clerk
+223|Trade Guild Scribe
+225|Karst Merchant
+227|Corvel Harbor Merchant
+228|Granny Herba
+229|Mirewood Herbalist
+230|Equipped: §
+231|Equipped: Iron Pickaxe
+232|Mines faster
+233|Lightbringer
+234|Lumiria's Shadow
+235|Fire Archer
+236|Paladin of Lumiria
+237|Shadow Assassin
+238|Mountain Blacksmith
+239|Kitchen Farmer
+240|Young Merchant
+241|Young Mage
+242|Temple Healer
+243|Gate Archer
+244|Light Fingers
+245|Gate Swordsman
+246|Goblin Conqueror
+247|New Wanderer
+248|No path chosen yet
+249|Archer
+250|Path of Light
+251|Path of Shadow
+252|Middle Path
+253|HP regen in town ×2, sell prices +5%, order rewards +10%, Holy Sword unlocked.
+254|Pickpocketing is easier, Shadow Stab unlocked. The Guild is wary: sell prices −5%, the Temple refuses to heal you.
+255|No special bonus or penalty. Every door is still open.
+256|Light +§
+257|Shadow +§
+258|You walk the Path of Light
+259|You walk the Path of Shadow
+260|Back to the Middle Path
+261|Day § · §.§
+262|The anvil's hot. Bring your ore and we'll forge something useful.
+263|Hungry? You can use the stove. Bring your own ingredients, though.
+264|Farmer
+265|Shadow Wanderer
+266|Casual Explorer
+267|Trade Courier
+268|Carpenter
+316|The guild field regrows by itself, but your own plot yields more.
+317|Silver can only be mined once your Mining reaches 15.
+318|A copper knife is everyone's first forging.
+319|Don't trust every rumor on the news board. Check the author's credibility first.
+320|Bows are great against wolves: shoot from afar before they pounce.
+321|Fireball needs Magic 5. Train with a staff first.
+322|The Goblin King is slow, but his slam hurts. Watch the red circle!
+323|Healing Circle can heal other wanderers too. The Temple likes that.
+324|At night someone sells things in the alley by the forge. Don't tell anyone.
+325|The Goddess statue in the plaza can save your journey.
+326|Fish is cheap in Corvel, bread is pricey in Karst. Walking saves coins, but the East Road bandits aren't joking.
+327|Wood is chopped with an axe in the forest outside town. Two wood make one plank at Bagas' workbench.
+328|harvest first~
+329|more wheat

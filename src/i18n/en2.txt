@@ -1,0 +1,355 @@
+330|tired but happy
+331|clang! clang!
+332|where's the ore
+333|silver hasn't respawned
+334|WTS!
+335|checking prices first
+336|slimes again
+337|watch out, wolves
+338|heal pls
+339|goblins stink
+340|focus the king!
+341|brb
+342|looking for party
+343|hmm, this rumor...
+344|is this legit
+345|praying first
+346|saving first
+347|any new quests?
+348|what orders today
+349|cold up in the mountains
+350|iron is super cheap here
+351|rocks, rocks, rocks
+352|smells like the sea~
+353|cheap fish!
+354|ship incoming
+355|the forest is dark
+356|fragrant herbs
+357|plots are pricey huh
+358|build build!
+359|entering the lottery again
+360|BANDITS!
+361|guard your goods!
+362|forest wolves are vicious
+363|forging nonstop
+364|so hot in here
+365|the soup's great
+366|so peaceful here
+367|hoping for gacha luck
+368|more § please
+369|drop was trash lol
+370|aw, knocked out :(
+371|someone revive me pls
+372|laggg
+373|that slam hurt so bad
+374|· AI Wanderer
+375|Hi! I'm §, §. §
+376|Rumors I've posted on the news board: §, proven true §. My credibility is §%.
+377|See you
+378|Pickpocket quietly (Shadow)
+379|They're still on guard
+380|Try again later
+381|Pickpocket successful
+382|+§ coins from §
+383|+§ coins
+384|THIEF!! watch out for §!
+385|Caught pickpocketing!
+386|Guard fine § coins · reputation −1
+387|thanks §! here's some pocket money
+388|lifesaver! thanks so much
+389|so kind, here's a few coins
+390|§ is back up
+391|Reward § coins
+392|is the § rumor about it going § real?
+393|already § § early lol
+394|usually legit tbh
+395|don't trust it, often fake
+396|rumor from § §
+397|§ is § at the market now, it's moving
+398|because of §, prices went crazy
+399|§? time to cash in
+400|whoever stockpiled before this just got rich
+401|THE GATE! everyone south!!
+402|healer where's the healer
+403|so many purple slimes
+404|hold the gate!!
+405|monster wave in § days, get your weapons ready
+406|meet at the gate when the wave comes
+407|blacksmiths will be swamped with orders before the wave
+408|watch your wallets if § is nearby
+409|they say § sneaks into the dark alley at night
+410|§ is so nice, revived me yesterday
+411|respect to §
+412|they say a strange merchant shows up in the alley by the forge every night
+413|perfect night for farming fireflies
+414|the temple looks so pretty at night
+415|WTS § §/pc, at the market
+416|guild field is busy, queueing to harvest
+417|tip: don't sell § during the bumper harvest
+418|anyone got spare strawberry seeds?
+419|WTS § §/pc
+420|has the silver in the mine corner respawned?
+421|iron pickaxe is so worth it
+422|goblins sometimes carry iron, not bad
+423|forging orders open, bring your own materials
+424|WTS § §, good quality
+425|blacksmithing levels so slowly past 40
+426|WTB lots of iron, market price
+427|WTS § §, small haggle ok
+428|WTB § under §
+429|market tax is heavy, level trading first
+430|§ price keeps going §, why
+431|wolves are easy if you shoot from range
+432|WTB §
+433|Arrow Rain needs Bow 8, grind first
+434|LFG wolves across the bridge
+435|Fireball + Fire Arrow combo is great
+436|always out of mana
+437|looking for an archer to build Fire Arrow together
+438|LFG Goblin King, need a tank
+439|LFG Goblin King, need 2 more
+440|chill slime party, anyone?
+441|Garon is such a good tank i swear
+442|anyone knocked out? i'll revive you
+443|free healer at the goblin camp
+444|the temple needs donations, let's help
+445|Light 30 unlocks Holy Sword btw
+446|don't ask where i got this silver
+447|that rumor on the board... yeah, just trust it
+448|good stuff in the alley tonight
+449|§ is only § in Corvel, § in Lumiria
+450|use insurance on the cart, got ambushed by bandits yesterday
+451|WTB fish to haul to Karst
+452|thin arbitrage margins, but it adds up
+453|offering house-building services lol
+454|wood is pricey this week
+455|don't declare your commercial plot too low or it'll get bought out
+456|keep losing the housing lottery, pity's at 5 already
+457|afk eating
+458|server's busy today
+459|when's the next ritual rate-up
+460|anyone want to hang out at the lake?
+461|ooh a new wanderer, nice to meet you §!
+462|§ if you're confused just ask in chat
+463|Word is the Ferna fields had a huge harvest; wheat's about to flood in.
+464|I hear the walls of Karst Mine are starting to crack.
+465|The Lantern Festival committee is quietly buying up food.
+466|A big buyer from Corvel arrives tomorrow.
+467|They say the Guild will stockpile for the Monster Wave.
+468|Someone saw a Trade Guild caravan held at the border.
+469|The mine is closing for a while, reliable source.
+470|The Temple needs a lot for next season's ritual.
+471|The Trade Guild's warehouse is overstocked; they'll dump it cheap.
+472|Trade Guild
+473|News Board
+474|§: § price will §
+475|lol thanks to whoever overpaid for §
+476|small profits
+477|it's just a rumor hehe
+478|got pranked by the § rumor from § :(
+479|§ is spreading fake rumors again
+480|bought up §, turned out to be a hoax
+481|§'s rumor about § was real!
+482|Your rumor came true
+483|Credibility rose to §%
+484|Your rumor was proven false
+485|Guild fine 20 coins · credibility §%
+486|§ spreading fake rumors? tsk tsk
+487|FALSE
+488|Rumor about § from §: §
+489|Rumor confirmed
+490|Rumor turned out false
+491|§ · from §
+492|World Event
+493|System
+494|Event: §
+498|Ferna Village Farmers
+500|Karst Miners
+501|Corvel Caravan
+502|Old Tarno's Forge
+503|Lumiria Residents
+504|Gate Guards
+505|AI Wanderers farming (§ people)
+507|AI Wanderers mining (§ people)
+508|AI Wanderers forging (§ people)
+509|AI Wanderers hunting (§ people)
+510|AI Wanderers trading (§ people)
+513|Leave the Temple, then meet Guild Master Rowan inside the Adventurers' Guild (west of the plaza)
+514|Harvest 3 crops at the Guild Field (§/3)
+515|Forge a Copper Knife at the Forge (ore in the northwest mine)
+516|Defeat 3 Slimes outside the gate (§/3)
+517|Report to Rowan at the Guild
+518|Sell one item at the Market (Bram, east of the plaza)
+519|The Temple calls you: meet Priestess Sela inside the Temple
+520|Ask Rowan at the Guild for a land permit
+521|Plant seeds in the Wanderer's Plot (southeast)
+522|Choose your path: buy a training weapon at the Guild, build skills in Status › Build
+523|Create an Earth recipe: §
+524|Read the News Board before trading
+525|Defeat the Goblin King (red zone, southwest)
+526|Training armory
+527|A new wanderer, huh? I'm Rowan, master of Lumiria's Adventurers' Guild.
+528|There are no classes binding you here. Sword, bow, magic, healing, or the shadow path: choose and train it yourself.
+529|Here's an old pickaxe. If you want another weapon, the guild's training armory is open to you.
+530|Quest: Try Three Lives
+531|Farmer · Blacksmith · Adventurer
+532|Three lives, three flavors. Farmer, blacksmith, adventurer... all honorable work here.
+533|Here's 40 coins. Now try selling something at the market. Bram, east of the plaza, will give you a price that's... honest, he says.
+534|Not done yet? Fields to the east, mine to the northwest, slimes to the south. Need another weapon?
+535|Maybe later
+536|The market is east of the plaza. Bram doesn't bite.
+537|Priestess Sela is looking for you. The Temple is to the north.
+538|I hear you already have a companion. Time you had land of your own.
+539|Here's a Wanderer's Plot Permit: free for 7 days. After that you rent like everyone else, and the tax rises if you greedily hoard plots.
+540|The plot is to the southeast, near the guild field. Take these seeds to start.
+544|Wanderer's Plot Permit
+545|Valid until Day § · +10 seeds
+546|Register recipe §
+547|Monsters at the gate! Everyone who can hold a weapon, head south!
+548|I've heard unpleasant things about you. Guild orders are still allowed, but I'm cutting the pay.
+549|The wanderer everyone's talking about! What do you need?
+550|What do you need, Wanderer?
+551|§? No one has ever registered it. From today your name is in the Guild Archive as its inventor.
+552|Every time another crafter makes it, you earn a 1% royalty from the guild fee. Check your Status Window.
+553|Earth recipe registered
+554|§ royalty active
+555|Bram, merchant. Prices here rise and fall with supply, residents, caravans and world events.
+556|Every item you sell adds to the town's stock, so its price drops a little. The Economy Flow tab shows who produces and who consumes.
+557|Hmm. The Trade Guild told me to be careful with you. I'm trimming your sell price a bit.
+558|The Goddess senses your resolve. It's time for your first Summoning Ritual.
+559|Other souls are trapped in the Veil. Summon one to accompany you. The first one is free.
+560|Your shadow runs deep, Wanderer. The Goddess grants no fate, but She is not blind. I can't heal you until you atone.
+561|Donations at the altar, reviving fallen wanderers, or guild orders will light your path again.
+562|I've healed your wounds with the Goddess's blessing. Be careful beyond the gate.
+563|The Goddess grants no fate, but She always listens.
+564|Light and shadow are both paths. What matters is knowing where you step.
+565|The next ritual needs a Veil Crystal. That's a story for another day.
+566|Altar of Goddess Lumiria
+567|The altar feels cold beneath your hand.
+568|Warm light falls through the stained glass.
+569|Pray (recover & save)
+570|Donate 20 coins (+Light)
+571|Not enough coins
+572|Thank you, Wanderer
+573|The Temple accepts your donation
+574|Leave
+575|You pray for a moment. HP and mana restored, journey saved.
+576|Your prayer feels hollow, but your journey is still saved.
+577|Sell goods (no tax, +20%)
+578|Poison Powder · 35 coins
+579|Rumor tip-off · 30 coins
+580|Shh. Quietly. I'm the Crow. Nothing sold here goes in the Trade Guild's books.
+581|What'll it be tonight? Remember, the Temple doesn't like folks who drop by here often.
+582|No rumors circulating
+583|The Crow shrugs
+584|TIP: true
+585|TIP: false
+586|From a Trade Guild insider: §. You didn't hear it from me.
+587|You're awake, §. Welcome to Lumiria Temple.
+588|The Goddess summoned you without a fate. Here you're free to be a farmer, blacksmith, merchant, archer, mage... even a thief. Light or shadow, it's your choice.
+589|Try saying "Status" in your mind.
+590|That's your Status Window. Natives can't see it. Only Wanderers can.
+591|Now head out the south door and meet Guild Master Rowan. The building with blue banners west of the plaza.
+592|New objective
+593|Meet Rowan at the Adventurers' Guild
+594|The Temple calls you
+595|Priestess Sela wants to talk
+596|STATUS WINDOW
+598|Build
+600|Bag
+601|Recipes
+602|Produce
+603|Ore & Materials
+604|Goods
+605|Kitchen & Seeds
+606|Compare Cities
+607|Economy Flow
+608|PLOT BOARD
+609|Plot
+610|Build
+611|GUILD LAND OFFICE
+612|STORAGE CHEST
+613|MANAGE SHOP
+614|BAGAS' CARPENTRY SHOP
+615|WORKBENCH
+616|MAP OF ELNORIA
+617|RIN'S TAVERN KITCHEN
+618|GUILD ORDER BOARD
+619|Rumors
+620|Post a Rumor
+621|TRAINING ARMORY
+622|BLACK MARKET
+623|PAUSED
+626|Light §
+627|Shadow §
+628|Unlocked from the start
+629|Your Status Window opens for the first time.
+630|Press I or the Status button anytime. Use the Build tab to assemble your own weapon and skills.
+631|Wooden Stick
+632|Guild plot until Day §
+633|None yet
+634|Light
+635|Neutral
+636|· knocked out
+637|Trait: § (§)
+638|HP · Energy
+639|Energy skill:
+640|None yet. Your first Summoning Ritual is at the Temple.
+641|Path:
+642|Earth Memory:
+643|HP / Mana
+644|Combat Rating
+645|Weapon
+646|Coins
+647|Guild Reputation
+648|Lv § (§)
+649|Rumor credibility
+650|Earth recipe royalties
+651|Light: guild orders, Temple donations, reviving fallen wanderers, honest rumors. Shadow: pickpocketing, fake rumors, the Black Market, poison.
+652|Companion
+653|Equipped
+654|Equip
+655|§ · § base dmg · trains §
+656|Empty
+657|Slot § · §
+658|HYB
+659|HYBRID
+660|Needs
+661|· § mana · § s cooldown
+662|Slot 1
+663|Slot 2
+664|Weapon · decides how you attack
+665|Buy training weapons at the Guild, forge stronger versions at the Forge. Each weapon trains its own combat skill.
+666|Active skill slots
+667|All skills · assemble your own build
+668|No classes. Skills rise through use, 700 points total max. Hybrid skills come from combining two paths, and two of them need the Path of Light or Shadow.
+669|Skills rise when used. 700 points total max, so nobody can master everything.
+670|Combat
+671|Total skill
+672|Titles come from your skill combination and the path you walk. Thresholds are lowered for the prototype.
+673|Bag is empty.
+674|Eat (+§ HP)
+675|Select for planting
+676|Spread on the Wanderer's Plot
+677|Apply to weapon (+3 dmg, 90 s)
+678|Bag contents can drop when you lose to other players in yellow or red zones (online feature). Items in the bank are always safe.
+679|EARTH RECIPE
+680|Forge
+681|Tavern
+682|Forge
+683|Cook
+684|Earth recipes come from your Earth Memory. Make it once, then register it with Rowan for royalties.
+685|Grows in § seconds (sped up for the prototype).
+686|§, § base damage. §
+687|HP-restoring food.
+688|Tool. Chop wild trees outside town for wood (trains Carpentry).
+689|Black Market tool. +15% chance to break open doors.
+690|Cuts the remaining growth time of all crops on your plot by 40%.
+691|Black Market goods. Poisoned weapon +3 damage for 90 seconds. Shifts you toward Shadow.
+692|A discovery from your home world. Sells high at the market.
+693|Current market price ±§ coins.
+695|· fixed price
+696|§ rumor circulating
+697|Sell §
+698|All
+699|Buy §
