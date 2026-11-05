@@ -4,7 +4,7 @@ Panduan buat pemilik repo. Isinya status terakhir, cara kerja, resource, dan daf
 
 ## Status
 
-Branch: `visual-istana-gading`. Belum di-merge ke `main`.
+Branch: `visual-istana-gading`, diajukan ke `main` lewat Pull Request.
 
 **Sudah jadi**
 - Dunia lukisan: tanah per chunk, bangunan semua region, pohon, lampu, kios, air mancur, ore, tenda, pagar
@@ -13,16 +13,19 @@ Branch: `visual-istana-gading`. Belum di-merge ke `main`.
 - Monster: slime, wolf, bat, golem. Goblin dan bandit memakai atlas karakter
 - Potret dialog dan UI gading-emas
 - Bug `doctype` dan `meta charset` yang hilang sudah diperbaiki
+- Goblin dan bandit memutar animasi jalan (tiap musuh punya objek look sendiri di `e.look`)
+- Kalau aset dunia gagal dimuat, game kembali ke grafis pixel (`HD.off`), tidak macet di loading
+- Chunk tanah tidak lagi bikin patah-patah: lapisan kosong dilewati dan chunk di sekitar kamera dicicil lewat `HD.prefetch`
 
 **Belum jadi** (urut prioritas)
-1. **Crash `tests/test_flow.py`, wajib beres sebelum merge.** Lihat bagian Masalah Terbuka.
-2. Ikon item masih pixel 16px (`drawItem`, panel Tas, Resep, dll.).
-3. Tanaman ladang (`drawCrop`), papan kavling (`drawPlots`), kandang kuda, gerbang selatan, dan portal dungeon masih pixel.
-4. Layar ritual dan prolog masih memakai gambar lama.
-5. 14 rekan belum punya art sendiri. Sekarang mereka dipetakan ke 8 tipe karakter lewat `HD.baseOf`.
-6. Warna kreator karakter belum mengubah sprite secara presisi. Sekarang dipilih dari varian terdekat lewat hash, bukan warna persis.
-7. `mapC` di peta dunia dan layar loading masih memakai versi pixel.
-8. Efek serangan dan partikel (`FX`) masih kotak kecil.
+1. Ikon item masih pixel 16px (`drawItem`, panel Tas, Resep, dll.).
+2. Tanaman ladang (`drawCrop`), papan kavling (`drawPlots`), kandang kuda, gerbang selatan, dan portal dungeon masih pixel.
+3. Layar ritual dan prolog masih memakai gambar lama.
+4. 14 rekan belum punya art sendiri. Sekarang mereka dipetakan ke 8 tipe karakter lewat `HD.baseOf`.
+5. Warna kreator karakter belum mengubah sprite secara presisi. Sekarang dipilih dari varian terdekat lewat hash, bukan warna persis.
+6. `mapC` di peta dunia dan layar loading masih memakai versi pixel.
+7. Efek serangan dan partikel (`FX`) masih kotak kecil.
+8. Performa di HP belum diukur. Di HP skala kanvas otomatis 3×.
 
 ## Cara Jalanin
 
@@ -60,6 +63,8 @@ Hal yang perlu dipahami di `HD`:
 - `HD.mute()` menjalankan fungsi gambar lama tanpa menggambar, jadi solid, cahaya, dan objek interaksi tetap terdaftar.
 - Tambah bangunan di `HD.BLD`, tipe tanah di `HD.LAYER`, `HD.SPAN`, dan `HD.PAINTED`, file gambar di `HD.FILES`.
 - Pilih tipe karakter di `HD.baseOf`, varian warna di `HD.VARS`.
+- Chunk tanah dibangun oleh generator `HD.build()` yang berhenti di antara lapisan. `HD.chunk()` membangun langsung chunk yang terlihat, `HD.prefetch()` mencicil chunk di sekitar kamera (`MARGIN` 96 px dunia, `BUDGET` 4 ms per frame). Cache maksimal `MAXCH` 18 chunk. Kanvas mask dipakai bersama, jadi membangun chunk lain secara langsung membatalkan job prefetch yang sedang jalan.
+- `HD.char` melacak fase jalan per objek look. Jangan buat objek look baru tiap frame dan jangan pakai satu objek untuk banyak aktor, nanti animasi jalannya macet.
 
 ## Resource
 
@@ -141,20 +146,14 @@ Gabungkan jadi atlas `assets/chars/<nama>.webp` ukuran 1152×512: kolom pertama 
 
 ## Masalah Terbuka
 
-**`tests/test_flow.py` membuat renderer Chrome crash (`Target crashed`) di bagian fuzz, sekitar baris 112.**
+**Crash `tests/test_flow.py` (`Target crashed`) hanya pernah muncul di satu mesin Windows.**
 
-Yang sudah diketahui:
-- Versi `main` lolos, jadi ini regresi dari reskin.
-- Crash terjadi saat loop `adv()` dengan dialog tetap terbuka, misalnya iterasi fuzz ke-142. Iterasinya bisa berubah.
-- Sempat lolos sekali pada build sebelum perubahan memori chunk.
-- Tidak ada exception JavaScript.
-- Soak main sungguhan 170 detik di semua region bersih tanpa crash.
+Tidak bisa direproduksi di tempat lain:
+- Linux headless: `test_flow` lolos, fuzz 1500 iterasi selama sekitar 25 menit dengan font asli tanpa crash. Memori renderer datar di 285–330 MB.
+- Linux dengan kondisi mirip Windows (1600×900 skala 125%, 1536×864 skala 150%, SwiftShader): tanpa crash.
+- Chrome macOS sungguhan: fuzz 3000 iterasi dengan dialog terbuka dan 1000 iterasi keliling dunia (sekitar 1200 chunk dibangun dan dibuang) tanpa crash.
 
-Yang sudah dicoba dan belum menyelesaikan:
-- Memakai ulang kanvas mask, membebaskan chunk lama, menurunkan `MAXCH` ke 14
-- Flush kanvas di `__GAME.step` (`hdNull.drawImage`). `getImageData` tidak bisa dipakai karena kanvas tainted di `file://`
-
-Langkah berikutnya: pantau memori proses renderer selama tes, lalu matikan fitur satu per satu dari `page.evaluate` (`HD.portrait`, `HD.char`, `HD.enemy`, stroke teks di `ptext`, `roundRect` di label) sampai crash hilang.
+Kalau crash muncul lagi di Windows, jalankan `python tests/crash_hunt.py`. Script itu menjalankan `test_flow` dengan satu fitur HD dimatikan per konfigurasi lalu mencatat hasilnya ke `crash_hunt.csv`.
 
 ## Catatan Tes
 
@@ -165,6 +164,8 @@ python tests/test_v5.py
 
 Tes memakai Chromium dari Playwright, jadi jalankan `playwright install chromium` sekali. `tests/en_sweep.py` butuh argumen folder output.
 
-Hasil terakhir: `smoke`, `test_v3`, `test_v4`, `test_v5` lolos. `test_flow` crash. `en_sweep` belum dijalankan dengan argumen yang benar.
+`tests/test_hd.py` adalah tes regresi renderer HD: animasi jalan musuh, fallback pixel saat aset gagal dimuat, dan berjalan melintasi chunk tanpa membangun chunk secara mendadak.
 
-Performa terakhir: sekitar 54 fps di 1600×900.
+Hasil terakhir: `smoke`, `test_v3`, `test_v4`, `test_v5`, `test_flow`, `test_hd`, dan `en_sweep` lolos.
+
+Performa terakhir di Chrome macOS (skala 4×), berjalan melintasi peta: frame terburuk 1,6 ms untuk update dan render (sebelumnya 371 ms saat chunk dibangun mendadak).
