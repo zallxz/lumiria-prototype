@@ -63,7 +63,7 @@ Hal yang perlu dipahami di `HD`:
 
 ## Resource
 
-**Art mentah dan model 3D:** paket `lumiria-art-source.zip` (belum ada di GitHub, minta ke kontributor yang mengerjakan reskin ini). Ekstrak di root repo jadi folder `_src/` (sudah di-ignore git).
+**Art mentah dan model 3D:** Release [`art-source-istana-gading`](https://github.com/zallxz/lumiria-prototype/releases/tag/art-source-istana-gading), file `lumiria-art-source.zip`. Ekstrak di root repo jadi folder `_src/` (sudah di-ignore git).
 
 ```text
 _src/art/    PNG mentah ChatGPT dan crop pose
