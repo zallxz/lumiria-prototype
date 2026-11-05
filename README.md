@@ -1,6 +1,6 @@
 # Lumiria — prototype MMORPG pixel isekai
 
-Prototype offline satu file (`index.html`), jalan langsung di browser PC & mobile. Bahasa Indonesia / English.
+Prototype statis (`index.html` + folder `assets/`), jalan langsung di browser PC & mobile. Bahasa Indonesia / English.
 
 **Main:** buka `index.html`, atau deploy folder ini ke Vercel sebagai situs statis (tanpa build).
 
@@ -13,8 +13,11 @@ Prototype offline satu file (`index.html`), jalan langsung di browser PC & mobil
 - Lab Web3 (simulasi offline): dompet, notaris aset, royalti pembuat, lencana soulbound, kas Guild & voting
 
 ## Struktur
-- `index.html` — hasil build, inilah yang dideploy
+- `index.html` + `assets/` — hasil build dan aset lukisan, inilah yang dideploy
+- `src/parts/hd.js` — renderer lukisan Istana Gading (tanah per chunk, sprite, karakter)
 - `src/assemble.py` — merakit `index.html` dari `src/index.v1.html` + `src/parts/*.js` + `src/i18n_dict.json`
 - `tests/` — playtest headless Playwright (`python tests/test_v5.py`)
+- `CONTINUE.md` — panduan lanjut reskin, resource, resep aset, dan masalah terbuka
+- `tools/` — pipeline bake dan render aset
 
-Build ulang: `cd src && python assemble.py && cp index.html ..` (skrip menulis `index.html` di folder `src`).
+Build ulang: `cd src && PYTHONUTF8=1 python assemble.py && mv index.html ..` (skrip menulis `index.html` di folder `src`).
