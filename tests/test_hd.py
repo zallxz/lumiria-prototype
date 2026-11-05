@@ -27,6 +27,14 @@ with sync_playwright() as p:
     })()""")
     check(all(n >= 4 for n in frames), f'goblin, bandit, bandit kedua memutar frame jalan {frames}')
     check(not errs, f'tanpa error halaman {errs[:2]}')
+    sync = pg.evaluate("""(() => {
+      __GAME.go('play'); __GAME.step(10); __GAME.exit(); __GAME.tp(6, 22); for (let i = 0; i < 31; i++) __GAME.step(1);
+      let miss = 0; const g = __GAME.G(), has = HD.chunks.has.bind(HD.chunks), oc = HD.chunk;
+      HD.chunk = function (x, y) { if (!has(x + ',' + y)) miss++; return oc.call(this, x, y); };
+      for (let i = 0; i < 700; i++) { g.hp = 999; g.x += 1.1; __GAME.step(1); }
+      HD.chunk = oc; return miss;
+    })()""")
+    check(sync == 0, f'berjalan melintasi chunk tanpa membangun chunk mendadak ({sync})')
     pg.close()
 
     pg = b.new_page(); errs = []

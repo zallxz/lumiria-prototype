@@ -3328,7 +3328,7 @@ const mapC = document.createElement('canvas'); mapC.width = MW * T; mapC.height 
 const hdNull = document.createElement('canvas').getContext('2d');
 const HD = {
   S: 3, skip: false, ready: false, img: {}, chunks: new Map(), statics: new Map(), stamps: [], shadow: null,
-  CH: 16, MAXCH: 14,
+  CH: 16,
   SPAN: { grass: 176, path: 112, plaza: 128, water: 144, dirt: 128, rock: 160, mire: 176, dfloor: 128, soil: 96, wood: 64 },
   LAYER: { [TL.PATH]: 'path', [TL.PLAZA]: 'plaza', [TL.WATER]: 'water', [TL.DIRT]: 'dirt', [TL.SAND]: 'dirt', [TL.ROCK]: 'rock', [TL.MIRE]: 'mire', [TL.DFLOOR]: 'dfloor', [TL.SOIL]: 'soil', [TL.PLOT]: 'soil', [TL.BRIDGE]: 'wood', [TL.CLIFF]: 'cliff', [TL.DWALL]: 'dwall' },
   PAINTED: new Set([TL.GRASS, TL.FLOWER, TL.TREE, TL.PATH, TL.PLAZA, TL.WATER, TL.DIRT, TL.SAND, TL.ROCK, TL.MIRE, TL.DFLOOR, TL.SOIL, TL.PLOT, TL.BRIDGE, TL.CLIFF, TL.DWALL, TL.FENCE]),
@@ -3340,7 +3340,7 @@ const HD = {
   spr(b) { const m = this.BLD[b.id]; if (m) return m; if (String(b.id).startsWith('pl_')) return /Toko|Bengkel|Kedai|Shop/.test(b.name || '') ? ['shop', b.w * 20] : ['house1', b.w * 17]; return null; },
   b(b) { return this.skip && !!this.spr(b); },
   mute(f) { const a = bx, b = ox; bx = ox = hdNull; try { f(); } finally { bx = a; ox = b; } },
-  flush() { for (const c of this.chunks.values()) c.width = c.height = 0; this.chunks.clear(); },
+  flush() { for (const c of this.chunks.values()) c.width = c.height = 0; this.chunks.clear(); this.job = null; },
   load() {
     const one = (n, src) => new Promise(r => { const i = new Image(); i.onload = () => { this.img[n] = i; r(); }; i.onerror = () => r(); i.src = src; });
     const all = this.FILES.map(n => one(n, `assets/world/${n}.webp`)).concat(this.CHARS.map(n => one('c_' + n, `assets/chars/${n}.webp`))).concat(this.BASES.map(n => one('p_' + n, `assets/chars/p_${n}.webp`)));
@@ -3373,33 +3373,62 @@ const HD = {
     for (let y = 0; y < MH; y++) for (let x = 0; x < MW; x++) if (at(x, y) === TL.TREE) { const h = hash(x, y, 77), edge = !(at(x - 1, y) === TL.TREE && at(x + 1, y) === TL.TREE && at(x, y + 1) === TL.TREE && at(x, y - 1) === TL.TREE);
       if (!edge && (x + y) % 2) continue; const cyp = h < .22, w = cyp ? 18 + h * 14 : 40 + h * 22; this.sprite(cyp ? 'cypress' : 'tree', x * T + 8 + (hash(x, y, 78) - .5) * 5, y * T + 15, w, { sh: cyp ? 16 : w * .62 }); }
   },
+  // Chunk tanah dibangun lewat generator build() yang berhenti sejenak di antara lapisan. Chunk yang terlihat dibangun langsung;
+  // chunk di sekitar kamera dicicil oleh prefetch() dengan jatah waktu per frame, jadi tidak ada lonjakan saat menyeberang batas chunk.
+  MAXCH: 18, BUDGET: 4, MARGIN: 96, job: null,
   chunk(ix, iy) {
-    const key = ix + ',' + iy; let e = this.chunks.get(key); if (e) { this.chunks.delete(key); this.chunks.set(key, e); return e; }
+    const key = ix + ',' + iy, e = this.chunks.get(key); if (e) { this.chunks.delete(key); this.chunks.set(key, e); return e; }
+    let g; if (this.job && this.job.key === key) g = this.job.gen; else g = this.build(ix, iy); this.job = null; // kanvas mask dipakai bersama: job lain dibatalkan
+    let r; do r = g.next(); while (!r.done); return this.store(key, r.value);
+  },
+  store(key, c) { this.chunks.set(key, c); while (this.chunks.size > this.MAXCH) { const k = this.chunks.keys().next().value, old = this.chunks.get(k); old.width = old.height = 0; this.chunks.delete(k); } return c; },
+  prefetch(cx, cy) {
+    const t0 = performance.now(), px = this.CH * T, M = this.MARGIN;
+    while (performance.now() - t0 < this.BUDGET) {
+      if (!this.job) { let best = null, bd = 1e9; const mx = cx + VW / 2, my = cy + VH / 2;
+        for (let iy = Math.max(0, Math.floor((cy - M) / px)); iy <= Math.floor((cy + VH + M) / px) && iy * px < MH * T; iy++)
+          for (let ix = Math.max(0, Math.floor((cx - M) / px)); ix <= Math.floor((cx + VW + M) / px) && ix * px < MW * T; ix++) {
+            if (this.chunks.has(ix + ',' + iy)) continue; const d = Math.hypot((ix + .5) * px - mx, (iy + .5) * px - my); if (d < bd) { bd = d; best = [ix, iy]; } }
+        if (!best) return; this.job = { key: best[0] + ',' + best[1], gen: this.build(best[0], best[1]) }; }
+      const r = this.job.gen.next(); if (r.done) { this.store(this.job.key, r.value); this.job = null; }
+    }
+  },
+  *build(ix, iy) {
     const S = this.S, CH = this.CH, px = CH * T, c = document.createElement('canvas'); c.width = c.height = px * S; const x = c.getContext('2d'), ox0 = ix * px, oy0 = iy * px;
     const m = this.mask || (this.mask = document.createElement('canvas')); if (m.width !== px * S) m.width = m.height = px * S; const mx = m.getContext('2d'); mx.setTransform(1, 0, 0, 1, 0, 0); mx.globalCompositeOperation = 'source-over'; mx.clearRect(0, 0, m.width, m.height);
     x.setTransform(S, 0, 0, S, -ox0 * S, -oy0 * S); mx.setTransform(S, 0, 0, S, -ox0 * S, -oy0 * S);
     x.fillStyle = this.pattern(x, 'grass'); x.fillRect(ox0, oy0, px, px);
     const X0 = ix * CH - 2, Y0 = iy * CH - 2, X1 = X0 + CH + 4, Y1 = Y0 + CH + 4;
     for (let ty = Y0; ty < Y1; ty++) for (let tx = X0; tx < X1; tx++) { const n = vnoise(tx / 11, ty / 11, 6); x.fillStyle = n > .5 ? `rgba(226,214,140,${(n - .5) * .34})` : `rgba(58,92,60,${(.5 - n) * .36})`; x.fillRect(tx * T, ty * T, T, T); }
-    const stampAll = (want, grow, solid) => { mx.setTransform(1, 0, 0, 1, 0, 0); mx.globalCompositeOperation = 'source-over'; mx.clearRect(0, 0, m.width, m.height); mx.setTransform(S, 0, 0, S, -ox0 * S, -oy0 * S);
-      for (let ty = Y0; ty < Y1; ty++) for (let tx = X0; tx < X1; tx++) { if (!want(at(tx, ty))) continue; if (!solid) { mx.fillStyle = '#fff'; mx.fillRect(tx * T - 1, ty * T - 1, T + 2, T + 2); } if (solid) { mx.fillStyle = '#fff'; mx.fillRect(tx * T - grow, ty * T - grow, T + grow * 2, T + grow * 2); continue; }
-        const s = T * (1.62 + grow), r = hash(tx, ty, 9) * 6.28; mx.save(); mx.translate(tx * T + 8, ty * T + 8); mx.rotate(r); mx.drawImage(this.stamps[(tx * 3 + ty * 5) & 3], -s / 2, -s / 2, s, s); mx.restore(); } };
-    const paint = (fill, a = 1) => { mx.globalCompositeOperation = 'source-in'; mx.fillStyle = fill; mx.fillRect(ox0 - 64, oy0 - 64, px + 128, px + 128); x.setTransform(1, 0, 0, 1, 0, 0); x.globalAlpha = a; x.drawImage(m, 0, 0); x.globalAlpha = 1; x.setTransform(S, 0, 0, S, -ox0 * S, -oy0 * S); };
+    // Tiap lapisan hanya mengerjakan kotak yang memuat tile-nya (bb, piksel kanvas chunk). Lapisan tanpa tile dilewati.
+    const D = px * S; let bb = null, dirty = null;
+    const stampAll = (want, grow, solid) => { mx.setTransform(1, 0, 0, 1, 0, 0); mx.globalCompositeOperation = 'source-over'; if (dirty) mx.clearRect(dirty[0], dirty[1], dirty[2], dirty[3]); dirty = null; mx.setTransform(S, 0, 0, S, -ox0 * S, -oy0 * S);
+      const s = T * (1.62 + grow), pad = solid ? grow + 2 : s * .71 + 2; let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+      for (let ty = Y0; ty < Y1; ty++) for (let tx = X0; tx < X1; tx++) { if (!want(at(tx, ty))) continue;
+        if (tx * T < x0) x0 = tx * T; if (ty * T < y0) y0 = ty * T; if (tx * T + T > x1) x1 = tx * T + T; if (ty * T + T > y1) y1 = ty * T + T;
+        if (!solid) { mx.fillStyle = '#fff'; mx.fillRect(tx * T - 1, ty * T - 1, T + 2, T + 2); } if (solid) { mx.fillStyle = '#fff'; mx.fillRect(tx * T - grow, ty * T - grow, T + grow * 2, T + grow * 2); continue; }
+        const r = hash(tx, ty, 9) * 6.28; mx.save(); mx.translate(tx * T + 8, ty * T + 8); mx.rotate(r); mx.drawImage(this.stamps[(tx * 3 + ty * 5) & 3], -s / 2, -s / 2, s, s); mx.restore(); }
+      if (x1 < x0) { bb = null; return; }
+      const a0 = Math.max(0, Math.floor((x0 - pad - ox0) * S)), b0 = Math.max(0, Math.floor((y0 - pad - oy0) * S)), a1 = Math.min(D, Math.ceil((x1 + pad - ox0) * S)), b1 = Math.min(D, Math.ceil((y1 + pad - oy0) * S));
+      dirty = [0, 0, D, D]; bb = a1 > a0 && b1 > b0 ? [a0, b0, a1 - a0, b1 - b0] : null; };
+    const paint = (fill, a = 1) => { if (!bb) return; const [a0, b0, w, h] = bb; mx.setTransform(1, 0, 0, 1, 0, 0); mx.globalCompositeOperation = 'source-in'; mx.fillStyle = fill; mx.translate(-ox0 * S, -oy0 * S); mx.scale(S, S); mx.fillRect(ox0 + a0 / S, oy0 + b0 / S, w / S, h / S); dirty = bb;
+      x.setTransform(1, 0, 0, 1, 0, 0); x.globalAlpha = a; x.drawImage(m, a0, b0, w, h, a0, b0, w, h); x.globalAlpha = 1; x.setTransform(S, 0, 0, S, -ox0 * S, -oy0 * S); };
     const is = t => k => this.LAYER[k] === t;
     const has = n => { for (let ty = Y0; ty < Y1; ty++) for (let tx = X0; tx < X1; tx++) if (this.LAYER[at(tx, ty)] === n) return true; return false; };
-    if (has('mire')) { stampAll(is('mire'), .2); paint(this.pattern(mx, 'mire')); }
-    if (has('rock')) { stampAll(is('rock'), .2); paint(this.pattern(mx, 'rock')); }
-    if (has('soil')) { stampAll(is('soil'), 0, true); paint(this.pattern(mx, 'soil')); }
-    if (has('dfloor')) { stampAll(is('dfloor'), .1); paint(this.pattern(mx, 'dfloor')); }
-    stampAll(is('dirt'), 0); paint(this.pattern(mx, 'dirt'));
-    stampAll(is('path'), .28); paint('rgba(120,92,62,.55)'); stampAll(is('path'), 0); paint(this.pattern(mx, 'path'));
-    stampAll(is('water'), .3); paint('#e8dcc4'); stampAll(is('water'), .06); paint('rgba(70,110,120,.8)'); stampAll(is('water'), 0); paint(this.pattern(mx, 'water'));
-    stampAll(is('plaza'), 2.4, true); paint('rgba(84,62,44,.34)'); stampAll(is('plaza'), 1.3, true); paint('#d8b878'); stampAll(is('plaza'), 0, true); paint(this.pattern(mx, 'plaza'));
-    if (has('wood')) { stampAll(is('wood'), 1.2, true); paint('rgba(60,40,28,.5)'); stampAll(is('wood'), 0, true); paint(this.pattern(mx, 'wood')); }
-    if (has('cliff')) { stampAll(is('cliff'), .5, true); paint(this.pattern(mx, 'rock')); stampAll(is('cliff'), .5, true); paint('rgba(52,42,38,.46)'); }
-    if (has('dwall')) { stampAll(is('dwall'), .5, true); paint(this.pattern(mx, 'dfloor')); stampAll(is('dwall'), .5, true); paint('rgba(16,12,24,.72)'); }
+    yield;
+    if (has('mire')) { stampAll(is('mire'), .2); paint(this.pattern(mx, 'mire')); yield; }
+    if (has('rock')) { stampAll(is('rock'), .2); paint(this.pattern(mx, 'rock')); yield; }
+    if (has('soil')) { stampAll(is('soil'), 0, true); paint(this.pattern(mx, 'soil')); yield; }
+    if (has('dfloor')) { stampAll(is('dfloor'), .1); paint(this.pattern(mx, 'dfloor')); yield; }
+    stampAll(is('dirt'), 0); paint(this.pattern(mx, 'dirt')); yield;
+    stampAll(is('path'), .28); paint('rgba(120,92,62,.55)'); yield; stampAll(is('path'), 0); paint(this.pattern(mx, 'path')); yield;
+    stampAll(is('water'), .3); paint('#e8dcc4'); yield; stampAll(is('water'), .06); paint('rgba(70,110,120,.8)'); yield; stampAll(is('water'), 0); paint(this.pattern(mx, 'water')); yield;
+    stampAll(is('plaza'), 2.4, true); paint('rgba(84,62,44,.34)'); yield; stampAll(is('plaza'), 1.3, true); paint('#d8b878'); yield; stampAll(is('plaza'), 0, true); paint(this.pattern(mx, 'plaza')); yield;
+    if (has('wood')) { stampAll(is('wood'), 1.2, true); paint('rgba(60,40,28,.5)'); yield; stampAll(is('wood'), 0, true); paint(this.pattern(mx, 'wood')); yield; }
+    if (has('cliff')) { stampAll(is('cliff'), .5, true); paint(this.pattern(mx, 'rock')); yield; stampAll(is('cliff'), .5, true); paint('rgba(52,42,38,.46)'); yield; }
+    if (has('dwall')) { stampAll(is('dwall'), .5, true); paint(this.pattern(mx, 'dfloor')); yield; stampAll(is('dwall'), .5, true); paint('rgba(16,12,24,.72)'); yield; }
     for (let ty = Y0; ty < Y1; ty++) for (let tx = X0; tx < X1; tx++) if (at(tx, ty) === TL.FLOWER && this.img.rose) { const r = this.img.rose, w = 9 + hash(tx, ty, 31) * 7; x.drawImage(r, tx * T + hash(tx, ty, 32) * 7, ty * T + hash(tx, ty, 33) * 8, w, w * r.naturalHeight / r.naturalWidth); }
-    e = c; this.chunks.set(key, e); while (this.chunks.size > this.MAXCH) { const k = this.chunks.keys().next().value, old = this.chunks.get(k); old.width = old.height = 0; this.chunks.delete(k); } return e;
+    return c;
   },
   eachVisible(cx, cy, f) { const px = this.CH * T, x0 = Math.floor((cx - 200) / px), y0 = Math.floor((cy - 200) / px), x1 = Math.floor((cx + VW + 30) / px), y1 = Math.floor((cy + VH + 30) / px);
     for (let iy = y0; iy <= y1; iy++) for (let ix = x0; ix <= x1; ix++) { const l = this.statics.get(ix + ',' + iy); if (l) for (const s of l) if (s.x < cx + VW + 4 && s.x + s.w > cx - 4 && s.y < cy + VH + 4 && s.y + s.h > cy - 30) f(s); } },
@@ -3411,6 +3440,7 @@ const HD = {
     for (let iy = y0; iy <= y1; iy++) for (let ix = x0; ix <= x1; ix++) { if (ix < 0 || iy < 0) continue; ctx.drawImage(this.chunk(ix, iy), ix * px - cx, iy * px - cy, px, px); }
     ctx.imageSmoothingEnabled = false; ctx.drawImage(baseC, cx, cy, VW, VH, 0, 0, VW, VH); ctx.imageSmoothingEnabled = true;
     this.eachVisible(cx, cy, s => { if (s.sh > 0) ctx.drawImage(this.shadow, s.cx - s.sh / 2 - cx, s.by - s.sh * .13 - cy, s.sh, s.sh * .26); });
+    this.prefetch(cx, cy);
   },
   pushStatics(list, cx, cy) { if (!this.ready) return; this.eachVisible(cx, cy, s => list.push({ y: s.by, f: () => { ctx.imageSmoothingEnabled = true; if (s.sw) ctx.drawImage(s.i, s.sx, 0, s.sw, s.i.naturalHeight, s.x, s.y, s.w, s.h); else ctx.drawImage(s.i, s.x, s.y, s.w, s.h); } })); },
   // Karakter: atlas 4 baris (0 depan, 1 belakang, 2 kiri, 3 kanan) x 9 kolom (0 diam, 1-8 jalan)
