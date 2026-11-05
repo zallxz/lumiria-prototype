@@ -209,7 +209,7 @@ S['S_craft'] = rep(S['S_craft'], "  <button class=\"btn sm ${ok ? 'gold' : ''}\"
 S['S_pause'] = rep(S['S_pause'], '<button class="btn" data-do="save">Simpan sekarang</button>', '<button class="btn" data-do="save">Simpan sekarang</button><button class="btn" data-do="backuppanel">Cadangan & ekspor simpanan</button><button class="btn" data-do="w3open">Lab Web3 (simulasi potensi online)</button>')
 S['S_enemydraw'] = rep(S['S_enemydraw'], "function drawEnemy(e) {\n  const t = e.anim, f = e.flash > 0;", "function drawEnemy(e) {\n  const t = e.anim, f = e.flash > 0;\n  if (e.elite) { ctx.globalCompositeOperation = 'lighter'; pellipse(ctx, e.x, e.y - 1, 9 + Math.sin(t * 6), 4, 'rgba(255,190,70,.35)'); ctx.globalCompositeOperation = 'source-over'; ptext(ctx, 'Elit', e.x, e.y - (e.d.boss ? 50 : 28), '#ffcf5a', 7, 'center'); }")
 parts = ''.join((D / f'parts/{n}.js').read_text() + '\n' for n in ['state', 'society']) + S['S_ui'] + ''.join((D / f'parts/{n}.js').read_text() + '\n' for n in ['talk', 'panels'])
-parts += S['S_ritual'] + ''.join((D / f'parts/{n}.js').read_text() + '\n' for n in ['play', 'land', 'travel', 'rpg', 'ai2', 'world2', 'meta', 'explore', 'web3', 'comp', 'render'])
+parts += S['S_ritual'] + ''.join((D / f'parts/{n}.js').read_text() + '\n' for n in ['play', 'land', 'travel', 'rpg', 'ai2', 'world2', 'meta', 'explore', 'web3', 'comp', 'hd', 'render'])
 for k, v in S.items():
     if k in ('S_ritual', 'S_ui'): continue
     tag = f'/*@@{k}@@*/'
@@ -232,5 +232,88 @@ import re as _re
 tail = _re.sub(r"function load\(\) \{.*?return true; \}", "function load() { return loadFrom(store.get('save', null)); }", tail, count=1)
 tail = rep(tail, "try { store.set('save', G); store.set('hasSave', true); } catch {}", "try { writeSave(); } catch {}")
 out = head + core + data + world + parts + tail
+
+# ---------- HD PAINTED RENDERER ----------
+out = rep(out, "<title>Lumiria</title>", '<!doctype html>\n<meta charset="utf-8">\n<title>Lumiria</title>')
+out = rep(out, "#game{image-rendering:pixelated;image-rendering:crisp-edges;display:block;outline:none}", "#game{display:block;outline:none}")
+out = rep(out, "const bx = baseC.getContext('2d'), ox = overC.getContext('2d');", "let bx = baseC.getContext('2d'), ox = overC.getContext('2d');")
+out = rep(out, "function prerender() {\n  buildMap();", """function prerender() {
+  const clr = () => { bx.clearRect(0, 0, MW * T, MH * T); ox.clearRect(0, 0, MW * T, MH * T); };
+  HD.skip = false; clr(); prerender0(); const mx = mapC.getContext('2d'); mx.clearRect(0, 0, MW * T, MH * T); mx.drawImage(baseC, 0, 0); mx.drawImage(overC, 0, 0);
+  HD.skip = true; clr(); prerender0(); HD.skip = false; if (HD.ready) { HD.indexStatics(); HD.flush(); }
+}
+function prerender0() {
+  buildMap();""")
+out = rep(out, "for (const b of BUILD) drawBuilding(b);\n  for (const s of STALLS) drawStall(s);\n  drawStatue();\n  drawFacades();\n  for (const [x, y] of LAMPS) drawLamp(x, y);\n  drawProps();",
+ """for (const b of BUILD) HD.b(b) ? HD.mute(() => drawBuilding(b)) : drawBuilding(b);
+  const m = f => HD.skip ? HD.mute(f) : f();
+  m(() => { for (const s of STALLS) drawStall(s); drawStatue(); drawFacades(); for (const [x, y] of LAMPS) drawLamp(x, y); });
+  drawProps(); if (HD.skip) { const nx = 33 * T + 8, ny = 17 * T + 12; bx.clearRect(nx - 17, ny - 32, 34, 36); ox.clearRect(nx - 17, ny - 32, 34, 36); }""")
+out = rep(out, "for (let y = 0; y < MH; y++) for (let x = 0; x < MW; x++) if (at(x, y) === TL.TREE) drawTreeTop(ox, x, y);\n  const mc", "if (!HD.skip) for (let y = 0; y < MH; y++) for (let x = 0; x < MW; x++) if (at(x, y) === TL.TREE) drawTreeTop(ox, x, y);\n  const mc")
+out = rep(out, "function drawGrass(c, px, py, tx, ty) {", "function drawGrass(c, px, py, tx, ty) {\n  if (HD.skip) return;")
+out = rep(out, "function edgeTufts(c, px, py, tx, ty) {", "function edgeTufts(c, px, py, tx, ty) {\n  if (HD.skip) return;")
+out = rep(out, "function drawTile(c, tx, ty) {", "function drawTile(c, tx, ty) {\n  if (HD.skip && HD.PAINTED.has(at(tx, ty))) return;")
+out = rep(out, "function drawChar(c, X, Y, o, dir, step, sc = 1, flash = 0) {", "function drawChar(c, X, Y, o, dir, step, sc = 1, flash = 0) {\n  if (c === ctx && HD.ready && typeof flash !== 'string' && HD.char(c, X, Y, o, dir, sc, flash)) return;")
+out = rep(out, "function pellipse(c, cx, cy, rx, ry, col) { c.fillStyle = col; for", "function pellipse(c, cx, cy, rx, ry, col) { if (c === ctx) { c.fillStyle = col; c.beginPath(); c.ellipse(cx, cy, rx, ry, 0, 0, 6.3); c.fill(); return; } c.fillStyle = col; for")
+out = rep(out, "x.drawImage(baseC, sx, sy, 480, 200, 0, 0, 480, 200); x.drawImage(overC, sx, sy, 480, 200, 0, 0, 480, 200);", "x.drawImage(mapC, sx, sy, 480, 200, 0, 0, 480, 200);")
+out = rep(out, "x.drawImage(baseC, ox, oy, MW * z, MH * z); x.drawImage(overC, ox, oy, MW * z, MH * z);", "x.drawImage(mapC, ox, oy, MW * z, MH * z);")
+out = rep(out, "  const w = innerWidth, h = innerHeight; VW = clamp(Math.round(VH * w / h), 400, 640);\n  if (cv.width !== VW) { cv.width = VW; cv.height = VH; dark.width = VW; dark.height = VH; }\n  const k = Math.min(w / VW, h / VH);",
+ "  const w = innerWidth, h = innerHeight; VW = clamp(Math.round(VH * w / h), 400, 640);\n  const k = Math.min(w / VW, h / VH), S = clamp(Math.ceil(k * Math.min(devicePixelRatio || 1, 2)), 2, 4);\n  if (cv.width !== VW * S || cv.height !== VH * S) { HD.S = S; cv.width = VW * S; cv.height = VH * S; dark.width = VW; dark.height = VH; HD.flush(); }")
+out = rep(out, "ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.imageSmoothingEnabled = false;\n  const [sx, sy]", "ctx.setTransform(HD.S, 0, 0, HD.S, 0, 0); ctx.imageSmoothingEnabled = true;\n  const [sx, sy]")
+out = rep(out, "if (TEST) { render(); window.__READY = true; } else { cv.focus(); requestAnimationFrame(t => { last = t; requestAnimationFrame(frame); }); window.__READY = true; }",
+ "HD.load().then(() => { if (TEST) { render(); window.__READY = true; } else { window.__READY = true; } });\nif (!TEST) { cv.focus(); requestAnimationFrame(t => { last = t; requestAnimationFrame(frame); }); }")
+
+# ---------- ISTANA GADING UI ----------
+_css_end = out.index('</style>')
+_h = out[:_css_end]
+for a, b in [("family=M+PLUS+Rounded+1c:wght@400;700;800&family=Pixelify+Sans:wght@500;700", "family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:wght@400;500;600"),
+  ("rgba(134,220,255,", "rgba(176,138,74,"), ("#86dcff", "#b08a4a"), ("#9ee6ff", "#d6b878"), ("#3aa6ff", "#c8a25c"),
+  ("rgba(70,170,255,.16)", "rgba(176,138,74,.14)"), ("rgba(80,180,255,.07)", "rgba(176,138,74,.08)"),
+  ("#1d4a86", "#fffaf0"), ("#163a6c", "#f1e4cc"), ("#2a5a9a", "#e8d6b6"), ("#2c5c9c", "#f6ead6"), ("#0b1c3a", "#dcc7a3"), ("#0d1e3d", "#3a2c28"), ("#04070f", "#17110f"), ("#08203d", "#fffaf0"),
+  ("rgba(8,20,44,.95)", "rgba(253,247,236,.97)"), ("rgba(10,30,60,.35)", "rgba(176,138,74,.12)"), ("rgba(0,0,0,.28)", "rgba(120,90,50,.09)"), ("rgba(0,0,0,.45)", "rgba(96,74,52,.2)"),
+  ("rgba(255,255,255,.03)", "rgba(255,255,255,.55)"), ("rgba(255,255,255,.025)", "rgba(255,255,255,.4)"), ("rgba(255,255,255,.14)", "rgba(120,90,50,.2)"),
+  ("rgba(120,30,40,.78)", "rgba(250,226,218,.96)"), ("rgba(70,18,24,.9)", "rgba(250,226,218,.97)"), ("rgba(30,90,60,.8)", "rgba(226,240,220,.96)"),
+  ("--night:#0a0f1e; --glass:rgba(9,22,48,.84); --glass-2:rgba(16,38,78,.92);", "--night:#231b18; --glass:rgba(253,247,236,.93); --glass-2:#fffaf0;"),
+  ("--line-dim:rgba(176,138,74,.34); --ink:#eaf6ff; --muted:#a6bfd8;", "--line-dim:rgba(176,138,74,.42); --ink:#3b2d25; --muted:#86705f;"),
+  ("--gold:#f4c869; --hp:#ff6f86; --ok:#86e3a0; --warn:#ffcf5a; --danger:#ff6464; --rose:#ff9ec4;", "--gold:#94701f; --hp:#c8506a; --ok:#4c8a5a; --warn:#b5832a; --danger:#b8443c; --rose:#b85c78;"),
+  ("--f-display:'Pixelify Sans',ui-monospace,Menlo,Consolas,monospace;", "--f-display:'Cinzel','Cormorant Garamond',Georgia,serif;"),
+  ("--f-body:'M PLUS Rounded 1c',ui-rounded,system-ui,-apple-system,'Segoe UI',sans-serif;", "--f-body:'Lora',Georgia,'Times New Roman',serif;"),
+  ("color-scheme:dark;", "color-scheme:light;")]:
+    if a in _h: _h = _h.replace(a, b)
+    else: print('css skip', a[:40])
+_extra = """
+/* Istana Gading: panel gading, garis emas tipis */
+.glass{box-shadow:0 6px 22px rgba(60,40,24,.2),inset 0 0 0 1px rgba(255,255,255,.6);border-radius:10px;backdrop-filter:blur(6px)}
+.glass.frame::before,.glass.frame::after{border-color:#c8a25c;border-width:1px}
+.btn{background:linear-gradient(#fffaf0,#f3e7d2);color:#4a3726;border-color:#c8a25c;border-radius:8px;font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 1px 2px rgba(60,40,24,.15)}
+.btn:hover{background:#fffdf7;box-shadow:0 2px 10px rgba(176,138,74,.4)}
+.btn.gold{background:linear-gradient(#e6c987,#c49a4e);color:#3b2a14;border-color:#a67c2e}
+#h-name,#d-name,#p-title{font-family:'Cinzel',Georgia,serif;font-weight:700}
+#d-name{color:#94701f}
+#logo{font-family:'Cinzel',Georgia,serif;font-weight:500;font-size:clamp(46px,10vw,96px);letter-spacing:.2em;color:#fff8e8;text-shadow:0 2px 3px rgba(70,44,20,.75),0 0 26px rgba(255,226,170,.7)}
+#title-ui p,.sub{color:#fff8e8;text-shadow:0 1px 3px rgba(50,30,16,.9)}
+.tab{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-weight:700;border-radius:8px 8px 0 0}
+.tag{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;border-radius:999px;padding:0 8px}
+.bar{border-radius:999px}.bar>i{background:linear-gradient(90deg,#b84a62,#dc7c8e)}.bar.mp>i{background:linear-gradient(90deg,#6a86b4,#9db8d8)}
+.bar>span{color:#fffaf0;text-shadow:0 1px 1px rgba(60,30,20,.7);font-family:'Lora',serif}
+#mini-wrap{padding:4px}#mini{border-radius:6px}
+#loadscr #ld-name{font-family:'Cinzel',serif;font-weight:500;color:#fff4dc}#loadscr #ld-tip{color:#fff4dc}#ld-art{image-rendering:auto;border-color:#c8a25c}
+.toast b{font-family:'Cinzel',serif;font-weight:700;color:#94701f}
+"""
+out = _h + _extra + out[_css_end:]
+out = rep(out, "str = tr(str); c.font = `bold ${size}px ui-monospace, Menlo, Consolas, monospace`; c.textAlign = align; c.textBaseline = 'middle';\n  c.fillStyle = 'rgba(10,8,20,.9)'; c.fillText(str, x + 1, y + 1); c.fillText(str, x - 1, y); c.fillText(str, x, y - 1); c.fillStyle = color; c.fillText(str, x, y); }",
+  "str = tr(str); c.font = `700 ${size + 1}px 'Cormorant Garamond', Georgia, serif`; c.textAlign = align; c.textBaseline = 'middle'; c.lineJoin = 'round';\n  c.lineWidth = 1.5; c.strokeStyle = 'rgba(52,34,24,.82)'; c.strokeText(str, x, y); c.fillStyle = color; c.fillText(str, x, y); }")
+
+# ---------- HD: entitas ----------
+out = rep(out, "  if (e.t === 'slime') drawSlime(ctx, e.x | 0, e.y | 0,", "  if (HD.ready && HD.enemy(e, t, f)) {} else if (e.t === 'slime') drawSlime(ctx, e.x | 0, e.y | 0,")
+out = rep(out, "    if (st.cd > 0) { ctx.fillStyle = '#6f6658'; ctx.fillRect(x - 4, y - 2, 3, 2); ctx.fillRect(x + 1, y - 3, 4, 3); continue; }\n    pellipse(ctx, x, y, 8, 2, 'rgba(0,0,0,.28)');",
+  "    if (st.cd > 0) { ctx.fillStyle = 'rgba(120,108,96,.8)'; ctx.beginPath(); ctx.ellipse(x, y - 1, 5, 2, 0, 0, 6.3); ctx.fill(); continue; }\n    if (HD.ready && HD.img['ore_' + type]) { pellipse(ctx, x, y, 9, 2.4, 'rgba(40,28,24,.26)'); ctx.drawImage(HD.img['ore_' + type], x - 10, y - 16, 20, 20 * HD.img['ore_' + type].naturalHeight / HD.img['ore_' + type].naturalWidth); continue; }\n    pellipse(ctx, x, y, 8, 2, 'rgba(0,0,0,.28)');")
+out = rep(out, "  drawFacades2(); drawPlots(); drawPlacedDecor();", "  if (HD.skip) HD.mute(drawFacades2); else drawFacades2(); drawPlots(); drawPlacedDecor();")
+out = rep(out, "drawProps(); if (HD.skip) { const nx = 33 * T + 8, ny = 17 * T + 12; bx.clearRect(nx - 17, ny - 32, 34, 36); ox.clearRect(nx - 17, ny - 32, 34, 36); }",
+  "drawProps(); if (HD.skip) { const nx = 33 * T + 8, ny = 17 * T + 12; bx.clearRect(nx - 17, ny - 32, 34, 36); ox.clearRect(nx - 17, ny - 32, 34, 36); for (const [tx, ty] of [[6, 50], [12, 49], [4, 54], [13, 54]]) { bx.clearRect(tx * T - 6, ty * T - 8, 30, 24); ox.clearRect(tx * T - 6, ty * T - 8, 30, 24); } for (const [tx, ty] of HD.SIGNS) { const x = tx * T + 8, y = ty * T + 13; bx.clearRect(x - 9, y - 18, 18, 20); } }")
+out = rep(out, "function drawPortrait(c, o) {", "function drawPortrait(c, o) {\n  if (HD.portrait(c, o)) return;")
+out = rep(out, "  if (c === ctx && HD.ready && typeof flash !== 'string' && HD.char(c, X, Y, o, dir, sc, flash)) return;", "  if (c === ctx && HD.ready && typeof flash !== 'string' && HD.char(c, X, Y, o, dir, sc, flash)) return;\n  if (HD.ready && c.canvas.id === 'cprev' && HD.preview(c, o, dir)) return;")
+out = rep(out, "</style>", "#portrait,#st-por,#st-comp,#cprev,.rcard canvas,#h-comp canvas{image-rendering:auto!important}#portrait{background:radial-gradient(circle at 50% 35%,#fbf1df,#e4d0ad)}\n</style>")
+out = rep(out, "step(n = 1) { for (let i = 0; i < n; i++) step(); render(); return this.state(); },", "step(n = 1) { for (let i = 0; i < n; i++) step(); render(); hdNull.drawImage(cv, 0, 0, 1, 1); return this.state(); },")
 (D / 'index.html').write_text(out)
 print('ok', len(out.splitlines()), 'lines')

@@ -16,6 +16,7 @@ function drawActors(room = null) {
       const lunge = c.atk > 0 ? 1 : 0; drawChar(ctx, c.x - 6 + (c.dir === 3 ? lunge : c.dir === 2 ? -lunge : 0), c.y - 16, COMPANIONS[c.id].look, c.dir, c.moving ? c.step : 0, 1, c.flash > 0 ? 1 : 0); c.flash = Math.max(0, (c.flash || 0) - TICK);
       if (c.id === 'garon') { const sx = c.dir === 2 ? c.x - 9 : c.dir === 3 ? c.x + 4 : c.x + 3; ctx.fillStyle = '#5d6877'; ctx.fillRect(sx, c.y - 10, 5, 7); ctx.fillStyle = '#cfd8e2'; ctx.fillRect(sx + 1, c.y - 9, 3, 5); ctx.fillStyle = '#d24a4a'; ctx.fillRect(sx + 2, c.y - 8, 1, 3); } } });
     list.push({ y: G.y, f: drawPlayer }); }
+  if (world) HD.pushStatics(list, Cam.x, Cam.y);
   list.sort((a, b) => a.y - b.y); for (const it of list) it.f();
   if (world) { for (const b of BOLTS) { ctx.globalCompositeOperation = 'lighter'; pcircle(ctx, b.x | 0, b.y | 0, 2, '#7fe8ff'); ctx.fillStyle = '#ffffff'; ctx.fillRect(b.x | 0, b.y | 0, 1, 1); ctx.globalCompositeOperation = 'source-over'; } drawProj(); }
   for (const b of BOTS) if ((b.room || null) === room && inView(b) && (b.bubble || b.down || (G && Math.hypot(b.x - G.x, b.y - G.y) < 56))) drawTag(b);
@@ -40,9 +41,9 @@ function drawWeaponInHand(x, y, dir, wt) {
 }
 function drawTag(b) {
   const y = b.y - (b.hp < b.hpMax ? 25 : 21);
-  if (b.bubble && !b.down) { ctx.font = 'bold 7px ui-monospace, Menlo, Consolas, monospace'; const txt = b.bubble.text, w = Math.ceil(ctx.measureText(txt).width) + 6, x = Math.round(b.x - w / 2), yy = Math.round(y - 15);
-    ctx.fillStyle = 'rgba(250,250,245,.95)'; ctx.fillRect(x, yy, w, 10); ctx.fillRect(x + 1, yy - 1, w - 2, 12); ctx.fillRect(Math.round(b.x) - 1, yy + 11, 3, 2); ctx.fillStyle = '#1b2033'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(txt, x + 3, yy + 5.5); }
-  ptext(ctx, b.name, b.x, y, b.down ? '#ffb0b0' : '#cfe8ff', 7, 'center');
+  if (b.bubble && !b.down) { ctx.font = "600 7.5px 'Cormorant Garamond', Georgia, serif"; const txt = b.bubble.text, w = Math.ceil(ctx.measureText(txt).width) + 9, x = b.x - w / 2, yy = y - 16;
+    ctx.fillStyle = 'rgba(253,247,236,.96)'; ctx.strokeStyle = 'rgba(176,138,74,.8)'; ctx.lineWidth = .5; ctx.beginPath(); ctx.roundRect(x, yy, w, 11, 5); ctx.fill(); ctx.stroke(); ctx.beginPath(); ctx.moveTo(b.x - 2, yy + 10.6); ctx.lineTo(b.x, yy + 13); ctx.lineTo(b.x + 2, yy + 10.6); ctx.fill(); ctx.fillStyle = '#4a3726'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(txt, x + 4.5, yy + 5.8); }
+  ptext(ctx, b.name, b.x, y, b.down ? '#ffc4b8' : '#fff4dc', 7, 'center');
 }
 function drawProj() {
   for (const p of PROJ) { if (p.kind === 'arrow') { const a = Math.atan2(p.vy, p.vx); ctx.strokeStyle = p.src === 'bot' ? '#c8b89a' : '#f2e2c4'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x - Math.cos(a) * 6, p.y - Math.sin(a) * 6); ctx.lineTo(p.x, p.y); ctx.stroke(); ctx.fillStyle = '#ffffff'; ctx.fillRect(p.x | 0, p.y | 0, 1, 1); continue; }
@@ -73,21 +74,21 @@ function ambient(dt) {
   if (nightAmt() < .5 && rand() < dt * 1.5) FX.burst(Cam.x + rnd(VW), Cam.y - 4, 1, pick(['#7fbf5f', '#a6d66a', '#ff9fbe']), 20, 6, 8, { up: -10, size: 2, sky: true });
 }
 function drawLabels() {
-  ctx.font = 'bold 7px ui-monospace, Menlo, Consolas, monospace'; ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+  ctx.font = "700 6.5px 'Cinzel', Georgia, serif"; ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
   const near = G ? Math.hypot : null;
   for (const L of LABELS) { const x = Math.round(L.x - Cam.x), y = Math.round(L.y - Cam.y); if (x < -60 || x > VW + 60 || y < -10 || y > VH + 10) continue;
-    const lt = tr(L.t), w = Math.ceil(ctx.measureText(lt).width) + 8; ctx.fillStyle = 'rgba(8,16,34,.78)'; ctx.fillRect(x - w / 2, y - 5, w, 10); ctx.fillStyle = L.c; ctx.fillRect(x - w / 2, y + 5, w, 1); ctx.fillStyle = L.c; ctx.fillText(lt, x, y + .5); }
+    const lt = tr(L.t), w = Math.ceil(ctx.measureText(lt).width) + 12; ctx.fillStyle = 'rgba(253,247,236,.94)'; ctx.strokeStyle = 'rgba(176,138,74,.9)'; ctx.lineWidth = .5; ctx.beginPath(); ctx.roundRect(x - w / 2, y - 5.5, w, 11, 2); ctx.fill(); ctx.stroke(); ctx.fillStyle = '#6b4e2a'; ctx.fillText(lt, x, y + .5); }
   void near;
 }
 function drawQuestMarker() {
   const mp = markerPos(); if (!mp) return; const x = mp[0], y = mp[1] - 22, sx = x - Cam.x, sy = y - Cam.y;
-  if (sx > 10 && sx < VW - 10 && sy > 10 && sy < VH - 10) { const b = Math.sin(Game.time * 5) * 2; ctx.fillStyle = '#f4c869'; ctx.fillRect(Math.round(sx) - 3, Math.round(sy + b) - 2, 7, 2); ctx.fillRect(Math.round(sx) - 2, Math.round(sy + b), 5, 1); ctx.fillRect(Math.round(sx) - 1, Math.round(sy + b) + 1, 3, 1); ctx.fillRect(Math.round(sx), Math.round(sy + b) + 2, 1, 1); return; }
+  if (sx > 10 && sx < VW - 10 && sy > 10 && sy < VH - 10) { const b = Math.sin(Game.time * 4) * 1.6; ctx.fillStyle = '#e8c56e'; ctx.strokeStyle = '#7a5a1e'; ctx.lineWidth = .6; ctx.beginPath(); ctx.moveTo(sx, sy + b + 4); ctx.lineTo(sx - 4, sy + b - 2); ctx.lineTo(sx, sy + b - 5); ctx.lineTo(sx + 4, sy + b - 2); ctx.closePath(); ctx.fill(); ctx.stroke(); return; }
   const ang = Math.atan2(sy - VH / 2, sx - VW / 2), ex = clamp(VW / 2 + Math.cos(ang) * VW, 16, VW - 16), ey = clamp(VH / 2 + Math.sin(ang) * VH, 16, VH - 16);
-  ctx.save(); ctx.translate(Math.round(ex), Math.round(ey)); ctx.rotate(ang); ctx.fillStyle = '#f4c869'; ctx.beginPath(); ctx.moveTo(7, 0); ctx.lineTo(-4, -5); ctx.lineTo(-2, 0); ctx.lineTo(-4, 5); ctx.closePath(); ctx.fill(); ctx.restore();
+  ctx.save(); ctx.translate(Math.round(ex), Math.round(ey)); ctx.rotate(ang); ctx.fillStyle = '#e8c56e'; ctx.beginPath(); ctx.moveTo(7, 0); ctx.lineTo(-4, -5); ctx.lineTo(-2, 0); ctx.lineTo(-4, 5); ctx.closePath(); ctx.fill(); ctx.restore();
 }
 function renderWorld() {
-  const cx = Math.round(Cam.x), cy = Math.round(Cam.y);
-  ctx.drawImage(baseC, cx, cy, VW, VH, 0, 0, VW, VH);
+  const cx = Math.round(Cam.x * HD.S) / HD.S, cy = Math.round(Cam.y * HD.S) / HD.S;
+  HD.ground(cx, cy);
   ctx.save(); ctx.translate(-cx, -cy);
   const t = Game.time, tx0 = Math.floor(cx / T), ty0 = Math.floor(cy / T);
   for (let ty = ty0; ty <= ty0 + Math.ceil(VH / T); ty++) for (let tx = tx0; tx <= tx0 + Math.ceil(VW / T); tx++) if (at(tx, ty) === TL.WATER) { const ph = hash(tx, ty, 3) * 6.28; const k = (Math.sin(t * 1.6 + ph) + 1) / 2;
@@ -97,7 +98,7 @@ function renderWorld() {
   if (G && BM.on) drawGhost();
   FX.draw(ctx, false);
   ctx.restore();
-  ctx.drawImage(overC, cx, cy, VW, VH, 0, 0, VW, VH);
+  ctx.imageSmoothingEnabled = false; ctx.drawImage(overC, cx, cy, VW, VH, 0, 0, VW, VH); ctx.imageSmoothingEnabled = true;
   ctx.save(); ctx.translate(-cx, -cy); FX.draw(ctx, true); ctx.restore();
   lighting();
   if (G) drawLabels();
@@ -109,7 +110,7 @@ function renderWorld() {
 function renderRoom() {
   const r = ROOMS[G.room], cx = Math.round(Cam.x), cy = Math.round(Cam.y), t = Game.time;
   ctx.fillStyle = '#07060c'; ctx.fillRect(0, 0, VW, VH);
-  ctx.save(); ctx.translate(-cx, -cy); ctx.drawImage(r.canvas, 0, 0);
+  ctx.save(); ctx.translate(-cx, -cy); const rp = HD.img['r_' + G.room]; if (rp) ctx.drawImage(rp, 0, 0, r.w * T, r.h * T); else { ctx.imageSmoothingEnabled = false; ctx.drawImage(r.canvas, 0, 0); ctx.imageSmoothingEnabled = true; }
   for (const f of r.fires) for (let i = 0; i < 4; i++) { const h = 3 + Math.abs(Math.sin(t * 10 + i * 1.7 + f.x)) * (f.small ? 3 : 6); ctx.fillStyle = i % 2 ? '#ffb347' : '#ff6a2a'; ctx.fillRect(f.x - 4 + i * 2, f.y - h, 2, h); }
   if (r.circle) for (let i = 0; i < 6; i++) { const a = t * .6 + i / 6 * Math.PI * 2; ctx.fillStyle = '#e8f4ff'; ctx.fillRect(Math.round(r.circle.x + Math.cos(a) * 24), Math.round(r.circle.y + Math.sin(a) * 11), 1, 1); }
   drawActors(G.room);
