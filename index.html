@@ -991,7 +991,7 @@ function drawProps() {
 function prerender() {
   const clr = () => { bx.clearRect(0, 0, MW * T, MH * T); ox.clearRect(0, 0, MW * T, MH * T); };
   HD.skip = false; clr(); prerender0(); const mx = mapC.getContext('2d'); mx.clearRect(0, 0, MW * T, MH * T); mx.drawImage(baseC, 0, 0); mx.drawImage(overC, 0, 0);
-  HD.skip = true; clr(); prerender0(); HD.skip = false; if (HD.ready) { HD.indexStatics(); HD.flush(); }
+  if (!HD.off) { HD.skip = true; clr(); prerender0(); HD.skip = false; } if (HD.ready) { HD.indexStatics(); HD.flush(); }
 }
 function prerender0() {
   buildMap(); SOLIDS.length = 0; OBJS.length = 0; LIGHTS.length = 0;
@@ -3344,7 +3344,11 @@ const HD = {
   load() {
     const one = (n, src) => new Promise(r => { const i = new Image(); i.onload = () => { this.img[n] = i; r(); }; i.onerror = () => r(); i.src = src; });
     const all = this.FILES.map(n => one(n, `assets/world/${n}.webp`)).concat(this.CHARS.map(n => one('c_' + n, `assets/chars/${n}.webp`))).concat(this.BASES.map(n => one('p_' + n, `assets/chars/p_${n}.webp`)));
-    return Promise.all(all).then(() => { this.makeStamps(); this.indexStatics(); this.ready = true; this.flush(); for (const id in ROOMS) one('r_' + id, `assets/rooms/${id}.webp`); });
+    return Promise.all(all).then(() => {
+      // Aset dunia tidak lengkap (mis. folder assets/ tidak ikut terupload): kembali ke grafis pixel, jangan macet.
+      const miss = this.FILES.filter(n => !this.img[n]);
+      if (miss.length) { console.warn('HD: aset dunia gagal dimuat, memakai grafis pixel.', miss.slice(0, 5)); this.off = true; prerender(); return; }
+      this.makeStamps(); this.indexStatics(); this.ready = true; this.flush(); for (const id in ROOMS) one('r_' + id, `assets/rooms/${id}.webp`); });
   },
   makeStamps() {
     for (let k = 0; k < 4; k++) { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); x.fillStyle = '#fff'; x.beginPath();
@@ -3400,6 +3404,7 @@ const HD = {
   eachVisible(cx, cy, f) { const px = this.CH * T, x0 = Math.floor((cx - 200) / px), y0 = Math.floor((cy - 200) / px), x1 = Math.floor((cx + VW + 30) / px), y1 = Math.floor((cy + VH + 30) / px);
     for (let iy = y0; iy <= y1; iy++) for (let ix = x0; ix <= x1; ix++) { const l = this.statics.get(ix + ',' + iy); if (l) for (const s of l) if (s.x < cx + VW + 4 && s.x + s.w > cx - 4 && s.y < cy + VH + 4 && s.y + s.h > cy - 30) f(s); } },
   ground(cx, cy) {
+    if (this.off) { ctx.imageSmoothingEnabled = false; ctx.drawImage(baseC, cx, cy, VW, VH, 0, 0, VW, VH); ctx.imageSmoothingEnabled = true; return; }
     if (!this.ready) { ctx.fillStyle = '#8fa574'; ctx.fillRect(0, 0, VW, VH); return; }
     const px = this.CH * T, x0 = Math.floor(cx / px), y0 = Math.floor(cy / px), x1 = Math.floor((cx + VW) / px), y1 = Math.floor((cy + VH) / px);
     ctx.imageSmoothingEnabled = true;
@@ -3535,7 +3540,7 @@ function drawEnemy(e) {
   else if (e.t === 'wolf') drawWolf(ctx, e.x, e.y, e.dir, t, f, e.moving);
   else if (e.t === 'bat') drawBat(e, t, f); else if (e.t === 'golem') drawGolem(e, t, f);
   else { const sc = e.d.boss ? 2 : 1; pellipse(ctx, e.x, e.y, 5 * sc, 2 * sc, 'rgba(0,0,0,.28)');
-    drawChar(ctx, e.x - 6 * sc, e.y - 16 * sc, e.t === 'bandit' ? BANDIT_LOOK : { skin: '#8ab04a', hair: e.d.boss ? '#3a2a1a' : '#4a3a20', top: e.d.boss ? '#a03a3a' : '#7a5a34', bottom: '#4a3a24', acc: e.d.boss ? 'crown' : 'goblin', eye: '#ffd24a' }, e.dir, e.moving ? (Math.floor(t * 6) % 2) : 0, sc, f ? 1 : 0); }
+    drawChar(ctx, e.x - 6 * sc, e.y - 16 * sc, e.look || (e.look = e.t === 'bandit' ? { ...BANDIT_LOOK } : { skin: '#8ab04a', hair: e.d.boss ? '#3a2a1a' : '#4a3a20', top: e.d.boss ? '#a03a3a' : '#7a5a34', bottom: '#4a3a24', acc: e.d.boss ? 'crown' : 'goblin', eye: '#ffd24a' }), e.dir, e.moving ? (Math.floor(t * 6) % 2) : 0, sc, f ? 1 : 0); }
   if (e.hp < e.max) { const w = e.d.boss ? 30 : 14, y = e.y - (e.d.boss ? 40 : e.t === 'wolf' ? 20 : 20); ctx.fillStyle = '#1a1020'; ctx.fillRect(e.x - w / 2 - 1, y - 1, w + 2, 4); ctx.fillStyle = '#ff5a6a'; ctx.fillRect(e.x - w / 2, y, Math.max(0, w * e.hp / e.max), 2); }
   if (e.d.boss) ptext(ctx, e.d.n, e.x, e.y - 46, '#ffb38a', 8, 'center');
 }

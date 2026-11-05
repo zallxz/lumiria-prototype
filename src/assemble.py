@@ -240,7 +240,7 @@ out = rep(out, "const bx = baseC.getContext('2d'), ox = overC.getContext('2d');"
 out = rep(out, "function prerender() {\n  buildMap();", """function prerender() {
   const clr = () => { bx.clearRect(0, 0, MW * T, MH * T); ox.clearRect(0, 0, MW * T, MH * T); };
   HD.skip = false; clr(); prerender0(); const mx = mapC.getContext('2d'); mx.clearRect(0, 0, MW * T, MH * T); mx.drawImage(baseC, 0, 0); mx.drawImage(overC, 0, 0);
-  HD.skip = true; clr(); prerender0(); HD.skip = false; if (HD.ready) { HD.indexStatics(); HD.flush(); }
+  if (!HD.off) { HD.skip = true; clr(); prerender0(); HD.skip = false; } if (HD.ready) { HD.indexStatics(); HD.flush(); }
 }
 function prerender0() {
   buildMap();""")
@@ -306,6 +306,9 @@ out = rep(out, "str = tr(str); c.font = `bold ${size}px ui-monospace, Menlo, Con
 
 # ---------- HD: entitas ----------
 out = rep(out, "  if (e.t === 'slime') drawSlime(ctx, e.x | 0, e.y | 0,", "  if (HD.ready && HD.enemy(e, t, f)) {} else if (e.t === 'slime') drawSlime(ctx, e.x | 0, e.y | 0,")
+# HD.char melacak fase jalan per objek look: tiap goblin/bandit butuh objek look sendiri agar animasi jalannya jalan.
+out = rep(out, "e.t === 'bandit' ? BANDIT_LOOK : { skin: '#8ab04a',", "e.look || (e.look = e.t === 'bandit' ? { ...BANDIT_LOOK } : { skin: '#8ab04a',")
+out = rep(out, "eye: '#ffd24a' }, e.dir, e.moving", "eye: '#ffd24a' }), e.dir, e.moving")
 out = rep(out, "    if (st.cd > 0) { ctx.fillStyle = '#6f6658'; ctx.fillRect(x - 4, y - 2, 3, 2); ctx.fillRect(x + 1, y - 3, 4, 3); continue; }\n    pellipse(ctx, x, y, 8, 2, 'rgba(0,0,0,.28)');",
   "    if (st.cd > 0) { ctx.fillStyle = 'rgba(120,108,96,.8)'; ctx.beginPath(); ctx.ellipse(x, y - 1, 5, 2, 0, 0, 6.3); ctx.fill(); continue; }\n    if (HD.ready && HD.img['ore_' + type]) { pellipse(ctx, x, y, 9, 2.4, 'rgba(40,28,24,.26)'); ctx.drawImage(HD.img['ore_' + type], x - 10, y - 16, 20, 20 * HD.img['ore_' + type].naturalHeight / HD.img['ore_' + type].naturalWidth); continue; }\n    pellipse(ctx, x, y, 8, 2, 'rgba(0,0,0,.28)');")
 out = rep(out, "  drawFacades2(); drawPlots(); drawPlacedDecor();", "  if (HD.skip) HD.mute(drawFacades2); else drawFacades2(); drawPlots(); drawPlacedDecor();")

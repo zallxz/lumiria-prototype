@@ -21,7 +21,11 @@ const HD = {
   load() {
     const one = (n, src) => new Promise(r => { const i = new Image(); i.onload = () => { this.img[n] = i; r(); }; i.onerror = () => r(); i.src = src; });
     const all = this.FILES.map(n => one(n, `assets/world/${n}.webp`)).concat(this.CHARS.map(n => one('c_' + n, `assets/chars/${n}.webp`))).concat(this.BASES.map(n => one('p_' + n, `assets/chars/p_${n}.webp`)));
-    return Promise.all(all).then(() => { this.makeStamps(); this.indexStatics(); this.ready = true; this.flush(); for (const id in ROOMS) one('r_' + id, `assets/rooms/${id}.webp`); });
+    return Promise.all(all).then(() => {
+      // Aset dunia tidak lengkap (mis. folder assets/ tidak ikut terupload): kembali ke grafis pixel, jangan macet.
+      const miss = this.FILES.filter(n => !this.img[n]);
+      if (miss.length) { console.warn('HD: aset dunia gagal dimuat, memakai grafis pixel.', miss.slice(0, 5)); this.off = true; prerender(); return; }
+      this.makeStamps(); this.indexStatics(); this.ready = true; this.flush(); for (const id in ROOMS) one('r_' + id, `assets/rooms/${id}.webp`); });
   },
   makeStamps() {
     for (let k = 0; k < 4; k++) { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); x.fillStyle = '#fff'; x.beginPath();
@@ -77,6 +81,7 @@ const HD = {
   eachVisible(cx, cy, f) { const px = this.CH * T, x0 = Math.floor((cx - 200) / px), y0 = Math.floor((cy - 200) / px), x1 = Math.floor((cx + VW + 30) / px), y1 = Math.floor((cy + VH + 30) / px);
     for (let iy = y0; iy <= y1; iy++) for (let ix = x0; ix <= x1; ix++) { const l = this.statics.get(ix + ',' + iy); if (l) for (const s of l) if (s.x < cx + VW + 4 && s.x + s.w > cx - 4 && s.y < cy + VH + 4 && s.y + s.h > cy - 30) f(s); } },
   ground(cx, cy) {
+    if (this.off) { ctx.imageSmoothingEnabled = false; ctx.drawImage(baseC, cx, cy, VW, VH, 0, 0, VW, VH); ctx.imageSmoothingEnabled = true; return; }
     if (!this.ready) { ctx.fillStyle = '#8fa574'; ctx.fillRect(0, 0, VW, VH); return; }
     const px = this.CH * T, x0 = Math.floor(cx / px), y0 = Math.floor(cy / px), x1 = Math.floor((cx + VW) / px), y1 = Math.floor((cy + VH) / px);
     ctx.imageSmoothingEnabled = true;
