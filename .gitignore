@@ -4,3 +4,4 @@ shots*/
 _src/
 tools/node_modules/
 .env
+crash_hunt.csv
